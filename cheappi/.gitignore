@@ -39,4 +39,4 @@ testem.log
 Thumbs.db
 
 # Map
-map.component.html
+map.component.ts
