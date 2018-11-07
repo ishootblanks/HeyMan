@@ -39,4 +39,4 @@ testem.log
 Thumbs.db
 
 # Environment
-environment.ts
+cheappi/src/environments/environment.ts

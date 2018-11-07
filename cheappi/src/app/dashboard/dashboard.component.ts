@@ -8,6 +8,13 @@ import { MatInputModule } from '@angular/material/input';
 })
 export class DashboardComponent implements OnInit {
 
+  // input event
+  values = '';
+
+  onKey(event: any) {
+    this.values += event.target.value + ' | ';
+  }
+
   constructor() { }
 
   ngOnInit() {
