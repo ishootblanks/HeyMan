@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 
+import { ApiClientServiceService } from '../api-client-service.service';
+import { Location } from '../location';
+import { MapComponent } from '../map/map.component';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -13,11 +17,27 @@ export class DashboardComponent implements OnInit {
 
   onEnter(event: any) {
     this.values += event.target.value + ' | ';
+    this.getLocation();
   }
+  location: Location[];
 
-  constructor() { }
 
-  ngOnInit() {
-  }
+  constructor(private apiClientService: ApiClientServiceService) { }
+
+    //transfer the input into a function
+    getLocation() {
+      this.apiClientService.getLocation(this.values).subscribe(response => {
+        console.log('response', response);
+        this.location = response;
+        console.log(location);
+        // lat: response.results[0].geometry.location.lat;
+        // lng: response.results[0].geometry.location.lng;
+      });
+    }
+
+    ngOnInit() {
+
+    }
+
 
 }

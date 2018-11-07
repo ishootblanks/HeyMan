@@ -11,6 +11,9 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material';
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
+import { ApiClientServiceService } from './api-client-service.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -28,11 +31,12 @@ import { MatInputModule } from '@angular/material/input';
     MatCheckboxModule,
     MatInputModule,
     AppRoutingModule,
+    HttpClientModule,
     AgmCoreModule.forRoot({
      apiKey: environment.APIKEY
    })
   ],
-  providers: [],
+  providers: [ApiClientServiceService],
   bootstrap: [AppComponent]
 })
 
