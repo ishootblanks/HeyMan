@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MapComponent } from './map/map.component';
 import { environment } from '../environments/environment';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
-import {MatInputModule} from '@angular/material/input';
+import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { MatInputModule } from '@angular/material/input';
+
+
 
 @NgModule({
   declarations: [
@@ -33,4 +35,7 @@ import {MatInputModule} from '@angular/material/input';
   providers: [],
   bootstrap: [AppComponent]
 })
+
+
+
 export class AppModule { }
