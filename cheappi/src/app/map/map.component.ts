@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-map',
@@ -7,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapComponent implements OnInit {
   title: string = 'My first AGM project';
-  lat: number = 41.3903651;
-  lng: number = 2.1941609;
+  lat: number = 41.3805446;
+  lng: number = 2.1673817;
   zoom: number = 13;
 
   constructor() { }

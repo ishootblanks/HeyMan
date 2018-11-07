@@ -2,3 +2,7 @@ agm-map {
   width: 100vw;
   height: 300px;
 }
+
+.button {
+  text-align: center;
+}

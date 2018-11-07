@@ -28,9 +28,9 @@ import { MatInputModule } from '@angular/material/input';
     MatCheckboxModule,
     MatInputModule
     AppRoutingModule,
-    AgmCoreModule.forRoot({
-     apiKey: environment.APIKEY
-   })
+   //  AgmCoreModule.forRoot({
+   //   apiKey: environment.APIKEY
+   // })
   ],
   providers: [],
   bootstrap: [AppComponent]
