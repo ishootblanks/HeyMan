@@ -11,7 +11,7 @@ export class DashboardComponent implements OnInit {
   // input event
   values = '';
 
-  onKey(event: any) {
+  onEnter(event: any) {
     this.values += event.target.value + ' | ';
   }
 

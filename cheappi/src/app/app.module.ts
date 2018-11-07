@@ -26,7 +26,7 @@ import { MatInputModule } from '@angular/material/input';
     NoopAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatInputModule
+    MatInputModule,
     AppRoutingModule,
     AgmCoreModule.forRoot({
      apiKey: environment.APIKEY
