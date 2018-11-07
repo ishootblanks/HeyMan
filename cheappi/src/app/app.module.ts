@@ -6,6 +6,11 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MapComponent } from './map/map.component';
 import { environment } from '../environments/environment';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { MaterialModule } from './material';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -15,6 +20,11 @@ import { environment } from '../environments/environment';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatInputModule
     AppRoutingModule,
     AgmCoreModule.forRoot({
      apiKey: environment.APIKEY
