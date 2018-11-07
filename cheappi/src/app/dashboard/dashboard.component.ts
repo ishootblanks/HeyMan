@@ -27,11 +27,7 @@ export class DashboardComponent implements OnInit {
     //transfer the input into a function
     getLocation() {
       this.apiClientService.getLocation(this.values).subscribe(response => {
-        console.log('response', response);
-        this.location = response;
-        console.log(location);
-        // lat: response.results[0].geometry.location.lat;
-        // lng: response.results[0].geometry.location.lng;
+        this.location = response.results;
       });
     }
 
