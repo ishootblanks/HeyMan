@@ -11,8 +11,11 @@ import { MapComponent } from '../map/map.component';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  latitude = '';
-  longitude = '';
+  latitude: number = 41.3805446;
+  longitude: number = 2.1673817;
+  zoom: number = 13;
+  // latitude = '';
+  // longitude = '';
 
     // input event
     marker1 = '';

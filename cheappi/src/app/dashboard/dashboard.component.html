@@ -10,7 +10,13 @@
     <textarea matInput placeholder="Enter your destination" input (keyup.enter)="onEnter2($event)"></textarea>
   </mat-form-field>
 </form>
+<br>
 <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="15">
   <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
 </agm-map>
+</div>
+<br>
+<div class="button">
+  <button mat-raised-button (click)="onClickMe()">Request Fares</button>
+  {{clickMessage}}
 </div>
