@@ -1,18 +1,18 @@
 <div>
   <form class="example-form">
   <mat-form-field class="example-full-width">
-    <textarea matInput placeholder="Enter your starting point" input (keyup.enter)="onEnter($event)"></textarea>
+    <textarea matInput placeholder="Enter your starting point" input (keyup)="onEnter($event)"></textarea>
   </mat-form-field>
   </form>
   <form class="example-form">
   <mat-form-field class="example-full-width">
-    <textarea matInput placeholder="Enter your destination" input (keyup.enter)="onEnter2($event)"></textarea>
+    <textarea matInput placeholder="Enter your destination" input (keyup)="onEnter2($event)"></textarea>
   </mat-form-field>
   </form>
   <br>
   <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="15">
-    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+    <agm-marker [latitude]="originLat" [longitude]="originLng"></agm-marker>
+    <agm-marker [latitude]="destinationLat" [longitude]="destinationLng"></agm-marker>
   </agm-map>
 </div>
 <br>

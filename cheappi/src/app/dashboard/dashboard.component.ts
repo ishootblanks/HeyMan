@@ -4,6 +4,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ApiClientServiceService } from '../api-client-service.service';
 import { Location } from '../location';
 import { MapComponent } from '../map/map.component';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,49 +17,44 @@ export class DashboardComponent implements OnInit {
   zoom: number = 13;
 
     // input event
-    marker1 = '';
-    marker2 = '';
+    origin = '';
+    destination = '';
+    originLat = 0;
+    originLng = 0;
+    destinationLat = 0;
+    destinationLng = 0;
 
    onEnter(event: any) {
-     this.marker1 += event.target.value + ' | ';
-     this.getLocation();
+     this.origin = event.target.value + ' | ';
    }
 
    onEnter2(event: any) {
-     this.marker2 += event.target.value + ' | ';
-     this.getDestination();
+     this.destination = event.target.value + ' | ';
    }
 
-   origin: Location[];
-   destination: Location[];
-
    // click event
-   clickMessage = '';
 
    onClickMe() {
-     this.clickMessage = '...loading';
+     this.getOrigin()
+     this.getDestination()
    }
 
 
    constructor(private apiClientService: ApiClientServiceService) { }
 
      //transfer the input into a function
-     getLocation() {
-       this.apiClientService.getLocation(this.marker1).subscribe(response => {
-         this.origin = response.results;
-         this.latitude = response.results[0].geometry.location.lat;
-         this.longitude = response.results[0].geometry.location.lng;
-         console.log(this.origin);
-         console.log(this.latitude);
+     getOrigin(): Observable<any> {
+       this.apiClientService.getLocation(this.origin).subscribe(response => {
+         this.originLat = response.results[0].geometry.location.lat;
+         this.originLng = response.results[0].geometry.location.lng;
        });
      }
 
      //transfer the input into a function
-     getDestination() {
-       this.apiClientService.getLocation(this.marker2).subscribe(response => {
-         this.destination = response.results;
-         this.latitude = response.results[0].geometry.location.lat;
-         this.longitude = response.results[0].geometry.location.lng;
+     getDestination(): Observable<any> {
+       this.apiClientService.getLocation(this.destination).subscribe(response => {
+         this.destinationLat = response.results[0].geometry.location.lat;
+         this.destinationLng = response.results[0].geometry.location.lng;
        });
      }
 

@@ -28,8 +28,10 @@ export class UberComponent implements OnInit {
 
   getEstimate (values: string): Observable<any> {
     console.log('heyyyyyyyyy', values);
-    return this.http.get<any>(this.httpOptions, this.baseURL, values);
+    return this.http.get<any>(this.baseURL, this.httpOptions);
   }
+
+
 
   ngOnInit() {
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { TaxiService } from '../taxi.service';
+
 
 @Component({
   selector: 'app-cabify',
@@ -8,12 +8,17 @@ import { Observable } from 'rxjs';
   styleUrls: ['./cabify.component.css']
 })
 export class CabifyComponent implements OnInit {
-  baseUrl: string = 'http://localhost:3000/route';
 
-  constructor(private http: HttpClient) { }
+  fare: [];
 
-  getFare (): Observable<any> {
-    return this.http.get<any>(this.baseUrl);
+  constructor(private taxiService: TaxiService) { }
+
+  getFare() {
+    this.taxiService.getFare().subscribe(response => {
+      this.fare = response.results;
+      console.log(this.fare);
+
+    });
   }
 
   ngOnInit() {
