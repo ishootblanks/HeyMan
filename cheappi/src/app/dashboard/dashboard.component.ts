@@ -36,7 +36,7 @@ export class DashboardComponent implements OnInit {
    clickMessage = '';
 
    onClickMe() {
-     this.clickMessage = 'You will get your fares!';
+     this.clickMessage = '...loading';
    }
 
 
