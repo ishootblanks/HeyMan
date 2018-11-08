@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { environment } from '../environments/environment';
 import { DashboardComponent } from  './dashboard/dashboard.component';
+import { UberComponent } from './uber/uber.component';
 
 
 @Injectable({
@@ -27,19 +28,19 @@ export class ApiClientServiceService {
       })
   }
 
-  // httpOptions = {
-  //   params: this.params,
-  //   headers: new HttpHeaders({
-  //     'Authorization: Token': environment.UBERKEY,
-  //     'Accept-Language': 'en_US',
-  //     'Content-Type': 'application/json'
-  //   })
-  // }
-  //
-  // getEstimate (Params: string): Observable<any> {
-  //   console.log('heyyyyyyyyy', this.params);
-  //   return this.http.get<any>(this.uberURL, this.httpOptions);
-  // }
+  httpOptions = {
+    params: this.params,
+    headers: new HttpHeaders({
+      'Authorization: Token': environment.UBERKEY,
+      'Accept-Language': 'en_US',
+      'Content-Type': 'application/json'
+    })
+  }
+
+  getEstimate (Params: string): Observable<any> {
+    console.log('heyyyyyyyyy', this.params);
+    return this.http.get<any>(this.uberURL, this.httpOptions);
+  }
 
 
 

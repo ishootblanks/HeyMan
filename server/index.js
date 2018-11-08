@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 
 const router = require('./router.js');
 
-mongoose.connect('mongodb://localhost/taxidata', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost:27017/taxidata', {useNewUrlParser: true});
 const db = mongoose.connection;
 
 app
@@ -14,5 +14,5 @@ app
   .use(cors())
   .use(router.routes());
 
-  app.listen(3000);
+app.listen(3000);
 console.log('starting app');

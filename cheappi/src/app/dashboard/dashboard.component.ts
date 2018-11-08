@@ -28,19 +28,15 @@ export class DashboardComponent implements OnInit {
 
    onEnter(event: any) {
      this.origin = event.target.value + ' | ';
-     console.log(this.origin);
    }
 
    onEnter2(event: any) {
      this.destination = event.target.value + ' | ';
-     console.log(this.destination);
    }
 
    // click event
 
    onClickMe() {
-     // console.log(event);
-     // e.preventDefault();
      this.getOrigin();
      this.getDestination();
    }

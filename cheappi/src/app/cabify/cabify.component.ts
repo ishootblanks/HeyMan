@@ -15,6 +15,7 @@ export class CabifyComponent implements OnInit {
 
   getFare() {
     this.taxiService.getFare().subscribe(response => {
+      console.log(response.results);
       this.fare = response.results;
       console.log(this.fare);
 

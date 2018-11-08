@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { ApiClientServiceService } from '../api-client-service.service';
+
 
 @Component({
   selector: 'app-uber',
@@ -9,7 +10,7 @@ import { ApiClientServiceService } from '../api-client-service.service';
 })
 export class UberComponent implements OnInit {
 
-  // Params = params;
+  @Input() Params: params;
 
   constructor(
     private apiClientService: ApiClientServiceService
@@ -17,11 +18,11 @@ export class UberComponent implements OnInit {
 
 
 
-  // getParams(): void {
-  //   this.apiClientService.getEstimate(this.Params).subscribe(response => {
-  //     console.log(response);
-  //   });
-  // }
+  getParams(): void {
+    this.apiClientService.getEstimate(this.Params).subscribe(response => {
+      console.log(response);
+    });
+  }
 
   ngOnInit() {
   }

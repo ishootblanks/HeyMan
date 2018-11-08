@@ -7,12 +7,13 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class TaxiService {
-  baseUrl: string = 'http://localhost:3000/route';
+  private cabiUrl: string = 'http://localhost:3000/route';
 
   constructor(private http: HttpClient) { }
 
   getFare (): Observable<any> {
-    return this.http.get<any>(this.baseUrl)
+    console.log('heyyyy');
+    return this.http.get<any>(this.cabiUrl)
 
   }
 
