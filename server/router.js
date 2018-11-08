@@ -4,6 +4,6 @@ const fare = require('./controllers/fare.js');
 
 router
   .get('/route', fare.getFare)
-  .post('/route', fare.postFare);
+  // .post('/route', fare.postFare);
 
 module.exports = router;
