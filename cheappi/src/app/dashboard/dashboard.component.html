@@ -3,20 +3,24 @@
   <mat-form-field class="example-full-width">
     <textarea matInput placeholder="Enter your starting point" input (keyup)="onEnter($event)"></textarea>
   </mat-form-field>
+  </form>
 
+  <form (ngSubmit)="onClickMe()" class="example-form">
   <mat-form-field class="example-full-width">
     <textarea matInput placeholder="Enter your destination" input (keyup)="onEnter2($event)"></textarea>
   </mat-form-field>
+ </form>
   <br>
-  <button mat-raised-button (click)="onClickMe()">Request Fares</button>
-  </form>
-  <br>
-  <br>
-  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+  <!-- <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
     <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-  </agm-map>
-  <!-- <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="15">
+  </agm-map> -->
+  <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="15">
     <agm-marker [latitude]="start_latitude" [longitude]="start_longitude"></agm-marker>
     <agm-marker [latitude]="end_latitude" [longitude]="end_longitude"></agm-marker>
-  </agm-map> -->
+  </agm-map>
+  <br>
+  <br>
+</div>
+<div class="button">
+  <button mat-raised-button (click)="onClickMe()">Request Fares</button>
 </div>

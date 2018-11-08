@@ -2,8 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { ApiClientServiceService } from '../api-client-service.service';
-import { Location } from '../location';
-import { MapComponent } from '../map/map.component';
+// import { Location } from '../location';
+// import { MapComponent } from '../map/map.component';
 import { Observable, of } from 'rxjs';
 
 @Component({
@@ -15,7 +15,6 @@ export class DashboardComponent implements OnInit {
   latitude: number = 41.3805446;
   longitude: number = 2.1673817;
   zoom: number = 13;
-
 
   // input event
   origin = '';
@@ -29,15 +28,19 @@ export class DashboardComponent implements OnInit {
 
    onEnter(event: any) {
      this.origin = event.target.value + ' | ';
+     console.log(this.origin);
    }
 
    onEnter2(event: any) {
      this.destination = event.target.value + ' | ';
+     console.log(this.destination);
    }
 
    // click event
 
    onClickMe() {
+     // console.log(event);
+     // e.preventDefault();
      this.getOrigin();
      this.getDestination();
    }
