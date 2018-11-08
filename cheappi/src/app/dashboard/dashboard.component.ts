@@ -11,10 +11,12 @@ import { MapComponent } from '../map/map.component';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  latitude = 0;
+  longitude = '';
 
-  // input event
-  marker1 = '';
-   marker2 = '';
+    // input event
+    marker1 = '';
+    marker2 = '';
 
    onEnter(event: any) {
      this.marker1 += event.target.value + ' | ';
@@ -37,6 +39,10 @@ export class DashboardComponent implements OnInit {
        this.apiClientService.getLocation(this.marker1).subscribe(response => {
          this.origin = response.results;
          console.log(this.origin);
+         this.latitude = response.results[0].geometry.location.lat;
+         this.longitude = response.results[0].geometry.location.lng;
+         console.log(this.latitude);
+         console.log(this.longitude);
        });
      }
 
