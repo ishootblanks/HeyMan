@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ApiClientServiceService } from './api-client-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UberComponent } from './uber/uber.component';
+import { CabifyComponent } from './cabify/cabify.component';
 
 
 
@@ -24,6 +25,7 @@ import { UberComponent } from './uber/uber.component';
     DashboardComponent,
     MapComponent,
     UberComponent,
+    CabifyComponent,
   ],
   imports: [
     BrowserModule,
