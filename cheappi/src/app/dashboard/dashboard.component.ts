@@ -1,6 +1,6 @@
+
 import { Component, OnInit } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
-
 import { ApiClientServiceService } from '../api-client-service.service';
 import { Location } from '../location';
 import { MapComponent } from '../map/map.component';
@@ -14,8 +14,6 @@ export class DashboardComponent implements OnInit {
   latitude: number = 41.3805446;
   longitude: number = 2.1673817;
   zoom: number = 13;
-  // latitude = '';
-  // longitude = '';
 
     // input event
     marker1 = '';
@@ -33,6 +31,13 @@ export class DashboardComponent implements OnInit {
 
    origin: Location[];
    destination: Location[];
+
+   // click event
+   clickMessage = '';
+
+   onClickMe() {
+     this.clickMessage = 'You will get your fares!';
+   }
 
 
    constructor(private apiClientService: ApiClientServiceService) { }
