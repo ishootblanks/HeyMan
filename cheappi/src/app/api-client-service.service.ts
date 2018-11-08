@@ -24,4 +24,10 @@ export class ApiClientServiceService {
         }
       })
   }
+
+  getMarker() {
+      
+  }
+
+
 }
