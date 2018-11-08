@@ -10,20 +10,27 @@ import { ApiClientServiceService } from '../api-client-service.service';
 })
 export class CabifyComponent implements OnInit {
 
-  private _fare = '';
+  private _fare = {};
 
-  @Input()
-  set fare(fare: string) {
-    console.log(fare);
-    this._fare = (fare && fare.trim()) || '<no name set>';
-  }
-
-  get fare(): string { return this._fare; }
+  // @Input()
+  // set fare(fare: string) {
+  //   console.log(fare);
+  //   this._fare = (fare && fare.trim()) || '<no name set>';
+  // }
+  //
+  // get fare(): string { return this._fare; }
 
   constructor(
     private taxiService: TaxiService,
     private apiClientService: ApiClientServiceService
   ) { }
+
+  showFare() {
+    this.taxiService.getFare()
+      .subscribe((data) => this._fare = {
+          price: data
+      });
+  }
 
   // getFare() {
   //   this.taxiService.getFare().subscribe(response => {

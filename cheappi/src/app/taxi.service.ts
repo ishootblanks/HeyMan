@@ -11,9 +11,9 @@ export class TaxiService {
 
   constructor(private http: HttpClient) { }
 
-  getFare (): Observable<any> {
+  getFare() {
     console.log('heyyyy');
-    return this.http.get<any>(this.cabiUrl)
+    return this.http.get(this.cabiUrl)
 
   }
 
