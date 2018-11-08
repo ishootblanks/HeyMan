@@ -6,6 +6,7 @@ exports.getFare = async (ctx, next) => {
 }
 
 exports.postFare = async (ctx, next) => {
-  ctx.body = await fare.postEstimate(ctx.request.body);
+  const newFare = await fare.postEstimate(ctx.request.body);
+  ctx.send(newFare);
   ctx.status = 201;
 }
