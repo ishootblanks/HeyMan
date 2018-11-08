@@ -21,7 +21,7 @@ const myModel = mongoose.model('fare', mySchema);
 exports.getEstimate = () => {
   console.log(data[0].estimate);
   const obj = {
-    price: data[0].estimate
+    price: data[1].estimate
   };
   return obj;
 };

@@ -26,7 +26,7 @@ export class ApiClientServiceService {
   }
 
   getMarker() {
-      
+
   }
 
 

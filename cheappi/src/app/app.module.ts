@@ -14,6 +14,7 @@ import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import { ApiClientServiceService } from './api-client-service.service';
 import { HttpClientModule } from '@angular/common/http';
+import { UberComponent } from './uber/uber.component';
 
 
 
@@ -22,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     DashboardComponent,
     MapComponent,
+    UberComponent,
   ],
   imports: [
     BrowserModule,
