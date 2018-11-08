@@ -16,13 +16,16 @@ export class DashboardComponent implements OnInit {
   longitude: number = 2.1673817;
   zoom: number = 13;
 
-    // input event
-    origin = '';
-    destination = '';
-    originLat = 0;
-    originLng = 0;
-    destinationLat = 0;
-    destinationLng = 0;
+
+  // input event
+  origin = '';
+  destination = '';
+  start_latitude = 0;
+  start_longitude = 0;
+  end_latitude = 0;
+  end_longitude = 0;
+
+  params: number[] = [];
 
    onEnter(event: any) {
      this.origin = event.target.value + ' | ';
@@ -35,26 +38,29 @@ export class DashboardComponent implements OnInit {
    // click event
 
    onClickMe() {
-     this.getOrigin()
-     this.getDestination()
+     this.getOrigin();
+     this.getDestination();
    }
 
 
    constructor(private apiClientService: ApiClientServiceService) { }
 
-     //transfer the input into a function
-     getOrigin(): Observable<any> {
+     //transfer the input Origin into a function
+     getOrigin(): void {
        this.apiClientService.getLocation(this.origin).subscribe(response => {
-         this.originLat = response.results[0].geometry.location.lat;
-         this.originLng = response.results[0].geometry.location.lng;
+         this.start_latitude = response.results[0].geometry.location.lat;
+         this.start_longitude = response.results[0].geometry.location.lng;
+         this.params.push(this.start_latitude, this.start_longitude);
        });
      }
 
-     //transfer the input into a function
-     getDestination(): Observable<any> {
+     //transfer the input Destination into a function
+     getDestination(): void {
        this.apiClientService.getLocation(this.destination).subscribe(response => {
-         this.destinationLat = response.results[0].geometry.location.lat;
-         this.destinationLng = response.results[0].geometry.location.lng;
+         this.end_latitude = response.results[0].geometry.location.lat;
+         this.end_longitude = response.results[0].geometry.location.lng;
+         this.params.push(this.end_latitude, this.end_longitude);
+         console.log(this.params);
        });
      }
 

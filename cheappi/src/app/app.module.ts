@@ -14,6 +14,7 @@ import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import { ApiClientServiceService } from './api-client-service.service';
 import { HttpClientModule } from '@angular/common/http';
+import { TaxiService } from './taxi.service';
 import { UberComponent } from './uber/uber.component';
 import { CabifyComponent } from './cabify/cabify.component';
 
@@ -40,7 +41,7 @@ import { CabifyComponent } from './cabify/cabify.component';
      apiKey: environment.APIKEY
    })
   ],
-  providers: [ApiClientServiceService],
+  providers: [ApiClientServiceService, TaxiService],
   bootstrap: [AppComponent]
 })
 
