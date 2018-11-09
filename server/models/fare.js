@@ -29,6 +29,15 @@ exports.getEstimate = () => {
 };
 
 exports.getPrice = async (ctx, next) => {
-  const info = await rp('https://api.uber.com/v1.2/estimates/price');
+  const info = await rp({
+    'uri': 'https://api.uber.com/v1.2/estimates/price?',
+    'start_latitude=': 'params.params[0]',
+    '&start_longitude=': 'params.params[1]',
+    '&end_latitude=': 'params.params[2]',
+    '&end_longitude=': 'params.params[3]',
+    'Authorization': 'params.uberKey',
+    'Accept-Language': 'en_US',
+    'Content-Type': 'application/json'
+  });
   ctx.body = info;
 };

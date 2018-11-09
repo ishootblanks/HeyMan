@@ -2,7 +2,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { ApiClientServiceService } from '../api-client-service.service';
-import { MapComponent } from '../map/map.component';
 import { Observable, of } from 'rxjs';
 
 @Component({

@@ -2,13 +2,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from  './dashboard/dashboard.component';
-import { UberComponent } from './uber/uber.component';
+import { FaresComponent } from './fares/fares.component';
 
 
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
-  { path: 'fares', component: UberComponent }
+  { path: 'fares', component: FaresComponent }
 ];
 
 @NgModule({

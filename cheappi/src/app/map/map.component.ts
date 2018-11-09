@@ -1,5 +1,7 @@
+
 import { Component, OnInit, Input } from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
+import { ApiClientServiceService } from '../api-client-service.service';
 
 @Component({
   selector: 'app-map',
@@ -14,7 +16,7 @@ export class MapComponent implements OnInit {
   markers = [];
 
 
-  constructor() { }
+  constructor(private apiClientService: ApiClientServiceService) { }
 
 
   getMarker() {

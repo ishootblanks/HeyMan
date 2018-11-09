@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
@@ -9,7 +10,6 @@ import { environment } from '../environments/environment';
 })
 export class ApiClientServiceService {
   private baseURL = 'https://maps.googleapis.com/maps/api/geocode/json';
-  // private uberURL = 'https://api.uber.com/v1.2/estimates/price';
   private uberURL = 'http://localhost:3000/uber';
 
   constructor(
@@ -26,25 +26,10 @@ export class ApiClientServiceService {
       })
   }
 
-  // httpOptions = {
-  //   params: this.params,
-  //   headers: new HttpHeaders({
-  //     'Authorization': environment.UBERKEY,
-  //     'Accept-Language': 'en_US',
-  //     'Content-Type': 'application/json'
-  //   })
-  // }
+  params= Object.assign({}, this.params, {uberKey: environment.UBERKEY});
 
   getEstimate (dataparams): Observable<any> {
   console.log('heyyyyyyyyy', dataparams);
-    return this.http.get(this.uberURL,
-      {
-      params: dataparams,
-      headers: new HttpHeaders({
-        'Authorization': environment.UBERKEY,
-        'Accept-Language': 'en_US',
-        'Content-Type': 'application/json'
-      })
-    });
+    return this.http.get(this.uberURL, this.params);
   }
 }
