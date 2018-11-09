@@ -19,12 +19,12 @@ const mySchema = new Schema({
 const myModel = mongoose.model('fare', mySchema);
 
 exports.getEstimate = () => {
+  let num = Math.floor(Math.random() * 3)
   const obj = {
-    price: data[0].estimate,
-    distance: data[0].distance,
-    time: data[0].duration
+    price: data[num].estimate,
+    distance: data[num].distance,
+    time: data[num].duration
   };
-  console.log(obj);
   return obj;
 };
 
