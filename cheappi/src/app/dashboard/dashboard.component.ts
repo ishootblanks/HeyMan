@@ -4,12 +4,15 @@ import { MatInputModule } from '@angular/material/input';
 import { ApiClientServiceService } from '../api-client-service.service';
 import { Observable, of } from 'rxjs';
 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  // autoCompleteCallback1(selectedData:any) {}
+
   // map on init
   latitude: number = 41.394923;
   longitude: number = 2.197632;

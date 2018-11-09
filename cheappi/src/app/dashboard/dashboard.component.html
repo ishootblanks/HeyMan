@@ -1,6 +1,8 @@
 <div>
   <form class="example-form">
     <mat-form-field class="example-full-width">
+      <!-- <ng4geo-autocomplete
+    (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete> -->
       <textarea matInput placeholder="Enter your starting point" input (keyup)="onEnter($event)"></textarea>
     </mat-form-field>
   </form>
@@ -21,5 +23,5 @@
   <a routerLink="/fares"><button mat-raised-button (click)="onClickMe()">Request Fares</button></a>
 </div>
 
-<app-uber [Data]="params"></app-uber>
-<app-map [Marker]="params"></app-map>
+<!-- <app-uber [Data]="params"></app-uber>
+<app-map [Marker]="params"></app-map> -->

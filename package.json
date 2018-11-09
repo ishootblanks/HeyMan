@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "dotenv": "^6.1.0",
-    "eslint-plugin-json": "^1.2.1"
+    "eslint-plugin-json": "^1.2.1",
+    "ng4-geoautocomplete": "^0.1.0"
   }
 }

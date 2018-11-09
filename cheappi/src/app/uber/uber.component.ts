@@ -13,6 +13,9 @@ export class UberComponent implements OnInit {
 
   @Input() public Data;
 
+  // get params from service
+  coordinates = this.apiClientService.params.params;
+
   constructor(private apiClientService: ApiClientServiceService) { }
 
 

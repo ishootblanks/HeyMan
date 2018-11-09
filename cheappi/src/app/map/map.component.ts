@@ -15,6 +15,7 @@ export class MapComponent implements OnInit {
   // building markers
   markers = [];
 
+  coordinates = this.apiClientService.params.params;
 
   constructor(private apiClientService: ApiClientServiceService) { }
 
