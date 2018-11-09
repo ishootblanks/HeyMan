@@ -18,7 +18,7 @@ export class UberComponent implements OnInit {
 
   getParams(): void {
     console.log('j arrive ici');
-    console.log(this.data);
+    console.log(this.Data);
     this.apiClientService.getEstimate().subscribe((params: Data) => this.params = this.Data);
   }
 
