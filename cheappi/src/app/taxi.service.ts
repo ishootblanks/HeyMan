@@ -9,11 +9,13 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class TaxiService {
   private cabiUrl: string = 'http://localhost:3000/route';
 
+  
+
   constructor(private http: HttpClient) { }
 
   getFare() {
     console.log('heyyyy');
-    return this.http.get(this.cabiUrl)
+    return this.http.get<Data[]>(this.cabiUrl);
 
   }
 

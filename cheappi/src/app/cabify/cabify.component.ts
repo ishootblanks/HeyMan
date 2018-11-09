@@ -10,15 +10,8 @@ import { ApiClientServiceService } from '../api-client-service.service';
 })
 export class CabifyComponent implements OnInit {
 
-  private _fare = {};
 
-  // @Input()
-  // set fare(fare: string) {
-  //   console.log(fare);
-  //   this._fare = (fare && fare.trim()) || '<no name set>';
-  // }
-  //
-  // get fare(): string { return this._fare; }
+  data: Data;
 
   constructor(
     private taxiService: TaxiService,
@@ -27,21 +20,11 @@ export class CabifyComponent implements OnInit {
 
   showFare() {
     this.taxiService.getFare()
-      .subscribe((data) => this._fare = {
-          price: data
-      });
+      .subscribe((data : Data) => this.data = data.price);
   }
 
-  // getFare() {
-  //   this.taxiService.getFare().subscribe(response => {
-  //     console.log(response.results);
-  //     this.fare = response.results;
-  //     console.log(this.fare);
-  //
-  //   });
-  // }
-
   ngOnInit() {
+    this.showFare();
   }
 
 }
