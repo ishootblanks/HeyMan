@@ -13,7 +13,7 @@ export class TaxiService {
 
   getFare() {
     // console.log('heyyyy');
-    return this.http.get<Data>(this.cabiUrl);
+    return this.http.get(this.cabiUrl);
   }
 
 }

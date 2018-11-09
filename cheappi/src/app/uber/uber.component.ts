@@ -1,3 +1,4 @@
+
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { ApiClientServiceService } from '../api-client-service.service';
@@ -16,7 +17,9 @@ export class UberComponent implements OnInit {
 
 
   getParams(): void {
-    this.apiClientService.getEstimate().subscribe((params: Data) => this.params = params.values);
+    console.log('j arrive ici');
+    console.log(this.data);
+    this.apiClientService.getEstimate().subscribe((params: Data) => this.params = this.Data);
   }
 
   ngOnInit() {

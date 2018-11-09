@@ -11,13 +11,23 @@ import { ApiClientServiceService } from '../api-client-service.service';
 export class CabifyComponent implements OnInit {
 
 
-  data: Data;
+  data ;
 
   constructor(private taxiService: TaxiService) { }
 
   showFare() {
+
     this.taxiService.getFare()
-      .subscribe((data : Data) => this.data = data.price);
+      .subscribe(data =>
+        {
+
+        console.log(data);
+      }
+        //
+        // this.data: price;
+        // this.data.distance,
+        // this.data.time
+      );
   }
 
   ngOnInit() {
