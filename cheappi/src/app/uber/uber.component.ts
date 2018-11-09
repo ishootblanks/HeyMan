@@ -10,13 +10,13 @@ import { ApiClientServiceService } from '../api-client-service.service';
 })
 export class UberComponent implements OnInit {
 
-  @Input() params: Params;
+  @Input() public Data;
 
   constructor(private apiClientService: ApiClientServiceService) { }
 
 
   getParams(): void {
-    this.apiClientService.getEstimate().subscribe((params: Params) => this.params = params.values);
+    this.apiClientService.getEstimate().subscribe((params: Data) => this.params = params.values);
   }
 
   ngOnInit() {

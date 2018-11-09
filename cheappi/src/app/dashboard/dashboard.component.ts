@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit {
   end_latitude = 0;
   end_longitude = 0;
 
-  params: number[] = [];
+  public params: number[] = [];
 
    onEnter(event: any) {
      this.origin = event.target.value + ' | ';

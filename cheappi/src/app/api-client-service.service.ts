@@ -11,8 +11,8 @@ import { UberComponent } from './uber/uber.component';
 })
 export class ApiClientServiceService {
   private baseURL = 'https://maps.googleapis.com/maps/api/geocode/json';
-  private uberURL = 'https://api.uber.com/v1.2/estimates/price';
-
+  // private uberURL = 'https://api.uber.com/v1.2/estimates/price';
+  private uberURL = 'http://localhost:3000/route';
 
   constructor(
     private http: HttpClient

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const data = require('../data.json');
+const rp = require('request-promise-native');
 
 
 const mySchema = new Schema({
@@ -17,12 +18,14 @@ const mySchema = new Schema({
 
 const myModel = mongoose.model('fare', mySchema);
 
-
 exports.getEstimate = () => {
-
   const obj = {
     price: data[1].estimate
   };
-  console.log(obj);
   return obj;
+};
+
+exports.getPrice = () => {
+  const info = await rp('https://api.uber.com/v1.2/estimates/price');
+  ctx.body = info;
 };
