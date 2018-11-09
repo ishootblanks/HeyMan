@@ -31,17 +31,17 @@ export class ApiClientServiceService {
   httpOptions = {
     params: this.params,
     headers: new HttpHeaders({
-      'Authorization: Token': environment.UBERKEY,
+      'Authorization': environment.UBERKEY,
       'Accept-Language': 'en_US',
       'Content-Type': 'application/json'
     })
   }
 
-  getEstimate (Params: string): Observable<any> {
-    console.log('heyyyyyyyyy', this.params);
-    return this.http.get<any>(this.uberURL, this.httpOptions);
+  getEstimate (): Observable<any> {
+    console.log('heyyyyyyyyy');
+    console.log(this.httpOptions);
+    return this.http.get<params>(this.uberURL, this.httpOptions);
   }
-
 
 
 }

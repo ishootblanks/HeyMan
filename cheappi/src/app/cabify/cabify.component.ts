@@ -13,10 +13,7 @@ export class CabifyComponent implements OnInit {
 
   data: Data;
 
-  constructor(
-    private taxiService: TaxiService,
-    private apiClientService: ApiClientServiceService
-  ) { }
+  constructor(private taxiService: TaxiService) { }
 
   showFare() {
     this.taxiService.getFare()
