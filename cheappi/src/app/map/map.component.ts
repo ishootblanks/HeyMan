@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 
 @Component({
@@ -7,22 +7,33 @@ import {MatButtonModule} from '@angular/material/button';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-  // set up the map view on first load
-  title: string = 'My first AGM project';
-  lat: number = 41.3805446;
-  lng: number = 2.1673817;
-  zoom: number = 13;
 
-  // click event
-  clickMessage = '';
+  @Input() public Marker;
 
-  onClickMe() {
-    this.clickMessage = 'You will get your fares!';
-  }
+  // building markers
+  markers = [];
+
 
   constructor() { }
 
+
+  getMarker() {
+    return this.markers.push(
+      {
+        lat: this.Marker[0].start_latitude,
+        lng: this.Marker[1].start_longitude,
+        label: 'A'
+      },
+      {
+        lat: this.Marker[2].start_latitude,
+        lng: this.Marker[3].start_longitude,
+        label: 'B'
+      }
+    )
+  }
+
   ngOnInit() {
+    this.getMarker();
   }
 
 }

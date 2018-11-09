@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { environment } from '../environments/environment';
-// import { DashboardComponent } from  './dashboard/dashboard.component';
-// import { UberComponent } from './uber/uber.component';
 
 
 @Injectable({

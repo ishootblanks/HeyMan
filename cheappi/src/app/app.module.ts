@@ -5,7 +5,7 @@ import { AgmCoreModule } from '@agm/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-// import { MapComponent } from './map/map.component';
+import { MapComponent } from './map/map.component';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,7 +24,7 @@ import { CabifyComponent } from './cabify/cabify.component';
   declarations: [
     AppComponent,
     DashboardComponent,
-    // MapComponent,
+    MapComponent,
     UberComponent,
     CabifyComponent,
   ],

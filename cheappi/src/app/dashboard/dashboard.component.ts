@@ -2,8 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { ApiClientServiceService } from '../api-client-service.service';
-// import { Location } from '../location';
-// import { MapComponent } from '../map/map.component';
+import { MapComponent } from '../map/map.component';
 import { Observable, of } from 'rxjs';
 
 @Component({
@@ -12,19 +11,14 @@ import { Observable, of } from 'rxjs';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  latitude: number = 41.3805446;
-  longitude: number = 2.1673817;
+  // map on init
+  latitude: number = 41.394923;
+  longitude: number = 2.197632;
   zoom: number = 13;
 
   // input event
   origin = '';
   destination = '';
-  start_latitude = 0;
-  start_longitude = 0;
-  end_latitude = 0;
-  end_longitude = 0;
-
-  public params: number[] = [];
 
    onEnter(event: any) {
      this.origin = event.target.value + ' | ';
@@ -35,11 +29,18 @@ export class DashboardComponent implements OnInit {
    }
 
    // click event
-
    onClickMe() {
      this.getOrigin();
      this.getDestination();
    }
+
+   // builing geocoordinates params for API
+   start_latitude = 0;
+   start_longitude = 0;
+   end_latitude = 0;
+   end_longitude = 0;
+
+   public params: number[] = [];
 
 
    constructor(private apiClientService: ApiClientServiceService) { }
