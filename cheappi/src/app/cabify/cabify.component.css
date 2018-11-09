@@ -1,0 +1,16 @@
+.cabi img {
+  width: 80px;
+  height: auto;
+}
+
+.cabi {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 20px;
+  border: solid 1px black;
+  margin-bottom: 3vh;
+  margin-top: 3vh;
+  background-color: white;
+}

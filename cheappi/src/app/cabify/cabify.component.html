@@ -1,6 +1,8 @@
-<h4>Cabify</h4>
-<div *ngIf="data">
-  <p>Price {{data.price}}</p>
-  <p>Estimated Time {{data.time}}</p>
-  <p>Distance {{data.distance}}</p>
+<div class="cabi">
+  <div><img src="{{imgLink}}"></div>
+  <div *ngIf="data">
+    <p>Price {{data.price}}</p>
+    <p>Estimated Time {{data.time}}</p>
+    <p>Distance {{data.distance}}</p>
+  </div>
 </div>
