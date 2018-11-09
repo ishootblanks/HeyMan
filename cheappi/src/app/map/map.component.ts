@@ -37,7 +37,7 @@ export class MapComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getMarker();
+    // this.getMarker();
   }
 
 }
