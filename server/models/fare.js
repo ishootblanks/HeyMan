@@ -20,12 +20,15 @@ const myModel = mongoose.model('fare', mySchema);
 
 exports.getEstimate = () => {
   const obj = {
-    price: data[1].estimate
+    price: data[0].estimate,
+    distance: data[0].distance,
+    time: data[0].duration
   };
+  console.log(obj);
   return obj;
 };
 
-exports.getPrice = () => {
+exports.getPrice = async (ctx, next) => {
   const info = await rp('https://api.uber.com/v1.2/estimates/price');
   ctx.body = info;
 };
