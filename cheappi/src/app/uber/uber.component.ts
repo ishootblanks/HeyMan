@@ -2,6 +2,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { ApiClientServiceService } from '../api-client-service.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 
 
 @Component({
@@ -14,20 +16,22 @@ export class UberComponent implements OnInit {
   imgLink: string ="assets/download.png";
   bookNow: string ="assets/book.jpeg";
 
-  @Input() public Data;
+  params: string;
+  private fare: any;
 
-  // get params from service
-  coordinates = this.apiClientService.params.params;
+  constructor(
+    private apiClientService: ApiClientServiceService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
-  constructor(private apiClientService: ApiClientServiceService) { }
-
-
-  getParams(): void {
-    this.apiClientService.getEstimate(this.Data).subscribe(params => this.Data = params);
-  }
+  // 
+  // getParams() {
+  //   this.apiClientService.getEstimate(this.params).subscribe(fare => this.params = fare);
+  // }
 
   ngOnInit() {
-    this.getParams();
+    // this.getParams();
   }
 
 }

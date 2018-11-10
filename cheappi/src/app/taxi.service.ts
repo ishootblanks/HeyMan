@@ -12,7 +12,6 @@ export class TaxiService {
   constructor(private http: HttpClient) { }
 
   getFare() {
-    // console.log('heyyyy');
     return this.http.get(this.cabiUrl);
   }
 

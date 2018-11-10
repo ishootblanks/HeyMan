@@ -14,19 +14,13 @@
  </form>
 
   <br>
-
-  <agm-map *ngIf="latitude && longitude" [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
-    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-  </agm-map>
+  <app-map [marker]="params" [toggle]="toggle"></app-map>
+   <!--  -->
 
   <br>
   <br>
-
 </div>
 
 <div class="button">
-  <a routerLink="/fares"><button mat-raised-button (click)="onClickMe()">Request Fares</button></a>
+  <a [routerLink]="['/fares', params]"><button mat-raised-button (click)="onClickMe()">Request Fares</button></a>
 </div>
-
-<!-- <app-uber [Data]="params"></app-uber>
-<app-map [Marker]="params"></app-map> -->

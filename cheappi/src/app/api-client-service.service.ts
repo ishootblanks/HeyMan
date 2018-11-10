@@ -11,10 +11,10 @@ import { environment } from '../environments/environment';
 export class ApiClientServiceService {
   private baseURL = 'https://maps.googleapis.com/maps/api/geocode/json';
   private uberURL = 'http://localhost:3000/uber';
+  private routeURL = 'https://maps.googleapis.com/maps/api/distancematrix/json';
 
-  constructor(
-    private http: HttpClient
-  ) { }
+
+  constructor(private http: HttpClient) { }
 
   getLocation(data: string): Observable<any> {
     return this.http
@@ -26,10 +26,25 @@ export class ApiClientServiceService {
       })
   }
 
-  params= Object.assign({}, this.params, {uberKey: environment.UBERKEY});
-
-  getEstimate(dataparams): Observable<any> {
-  console.log('params', dataparams);
-    return this.http.get(this.uberURL, this.params);
+  getEstimate(dataparams: string): Observable<any> {
+    return this.http
+      .get(this.uberURL, {
+        params:{
+          coordinates: dataparams,
+          uberKey: environment.UBERKEY
+        }
+      })
   }
+
+  getCoordinates(coordinates: string): Observable<any> {
+    return this.http
+      .get(this.routeURL,{
+        params:{
+          unit: 'units=imperial&origins=data',
+          geometry: coordinates,
+          key:environment.APIKEY
+        }
+      })
+  }
+
 }

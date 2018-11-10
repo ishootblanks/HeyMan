@@ -1,4 +1,9 @@
-<div *ngIf="markers">
+<div *ngIf="toggle">
+  <agm-map *ngIf="latitude && longitude" [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+  </agm-map>
+</div>
+<div *ngIf="markers && !toggle && ready" >
   <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
     <agm-marker *ngFor="let m of markers"
       [latitude]="m.lat"

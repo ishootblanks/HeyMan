@@ -11,21 +11,10 @@ import { Observable, of } from 'rxjs';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  // autoCompleteCallback1(selectedData:any) {}
 
-  // map on init
-  latitude: number;
-  longitude: number;
-  zoom: number = 14;
+  // change map view
+  toggle: boolean = true;
 
-  getUserLocation () {
-   if (navigator.geolocation) {
-     navigator.geolocation.getCurrentPosition(position => {
-       this.latitude = position.coords.latitude;
-       this.longitude = position.coords.longitude;
-     });
-   }
- }
 
   // input event
   origin = '';
@@ -34,10 +23,10 @@ export class DashboardComponent implements OnInit {
    onEnter(event: any) {
      this.origin = event.target.value + ' | ';
    }
-
    onEnter2(event: any) {
      this.destination = event.target.value + ' | ';
    }
+
 
    // click event
    onClickMe() {
@@ -45,16 +34,19 @@ export class DashboardComponent implements OnInit {
      this.getDestination();
    }
 
+
    // builing geocoordinates params for API
    start_latitude = 0;
    start_longitude = 0;
    end_latitude = 0;
    end_longitude = 0;
 
-   public params: number[] = [];
+   params: any = [];
 
 
-   constructor(private apiClientService: ApiClientServiceService) { }
+
+   constructor(
+     private apiClientService: ApiClientServiceService) { }
 
      //transfer the input Origin into a function
      getOrigin(): void {
@@ -65,6 +57,7 @@ export class DashboardComponent implements OnInit {
        });
      }
 
+
      //transfer the input Destination into a function
      getDestination(): void {
        this.apiClientService.getLocation(this.destination).subscribe(response => {
@@ -72,13 +65,46 @@ export class DashboardComponent implements OnInit {
          this.end_longitude = response.results[0].geometry.location.lng;
          this.params.push(this.end_latitude, this.end_longitude);
          console.log(this.params);
+         this.getParams();
+         this.getMarker();
        });
      }
 
-     ngOnInit() {
-       this.getUserLocation ();
+
+     // fetching params to uber api call
+     getParams() {
+       this.apiClientService.getEstimate(this.params).subscribe(param =>
+         this.params = param
+
+       );
+       console.log(this.params);
      }
 
 
+     // building marker for route map
+     latitude: number;
+     longitude: number;
+     coordinates: any = [];
+     getMarker() {
+       this.apiClientService.getCoordinates(this.params).subscribe(param =>{
+          this.coordinates.push(
+            {
+              latitude: this.params[0],
+              longitude: this.params[1],
+              label: 'A'
+            },
+            {
+              latitude: this.params[2],
+              longitude: this.params[3],
+              label: 'B'
+            }
+          )
+       });
+       console.log(this.coordinates);
+     }
+
+     ngOnInit() {
+
+     }
 
 }

@@ -10,44 +10,57 @@ import { ApiClientServiceService } from '../api-client-service.service';
 })
 export class MapComponent implements OnInit {
 
-  @Input() public Marker;
+  @Input() marker;
+  @Input() toggle;
+
+  // map on init
+  latitude: number;
+  longitude: number;
+  zoom: number = 16;
+
+  getUserLocation () {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+      });
+    }
+  }
+
 
   // building markers
-  markers = [];
-
-  // get params from service
-  coordinates = this.apiClientService.params.params;
+  // markers: any = []
+  // other: any;
+  //
+  // // get params from service
+  // params: string;
+  // private coordinates: any;
+  // coordinates = this.apiClientService.params;
 
 
   constructor(private apiClientService: ApiClientServiceService) { }
 
 
-  getMarker() {
-    this.markers.push(
-      {
-        lat: this.coordinates[0],
-        lng: this.coordinates[1],
-        label: 'A'
-      },
-      {
-        lat: this.Marker[2],
-        lng: this.Marker[3],
-        label: 'B'
-      }
-    )
-  }
-
-  myPromise = new Promise(
-    function (resolve, reject) {
-      setTimeout(() => {
-        console.log(this.coordinates);
-        resolve(this.getMarker());
-      }, 1000);
-    }
-  )
+  // getMarker() {
+  //   console.log(this.coordinates);
+  //   setTimeout(() => {
+  //     this.markers.push(
+  //       {
+  //         latitude: this.coordinates[0],
+  //         longitude: this.coordinates[1],
+  //         label: 'A'
+  //       },
+  //       {
+  //         latitude: this.coordinates[2],
+  //         longitude: this.coordinates[3],
+  //         label: 'B'
+  //       }
+  //     )
+  //   }, 600);
+  // }
 
   ngOnInit() {
-
+    this.getUserLocation ();
   }
 
 }
