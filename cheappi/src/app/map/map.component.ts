@@ -32,6 +32,7 @@ export class MapComponent implements OnInit {
 
 
   ngOnInit() {
+    console.log(this.marker);
     this.getUserLocation ();
   }
 

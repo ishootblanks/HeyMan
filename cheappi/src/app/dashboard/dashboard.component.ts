@@ -100,6 +100,7 @@ export class DashboardComponent implements OnInit {
             }
           )
        });
+       this.toggle = false;
        console.log(this.coordinates);
      }
 
