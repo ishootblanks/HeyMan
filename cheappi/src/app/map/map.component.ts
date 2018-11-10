@@ -28,36 +28,8 @@ export class MapComponent implements OnInit {
   }
 
 
-  // building markers
-  // markers: any = []
-  // other: any;
-  //
-  // // get params from service
-  // params: string;
-  // private coordinates: any;
-  // coordinates = this.apiClientService.params;
-
-
   constructor(private apiClientService: ApiClientServiceService) { }
 
-
-  // getMarker() {
-  //   console.log(this.coordinates);
-  //   setTimeout(() => {
-  //     this.markers.push(
-  //       {
-  //         latitude: this.coordinates[0],
-  //         longitude: this.coordinates[1],
-  //         label: 'A'
-  //       },
-  //       {
-  //         latitude: this.coordinates[2],
-  //         longitude: this.coordinates[3],
-  //         label: 'B'
-  //       }
-  //     )
-  //   }, 600);
-  // }
 
   ngOnInit() {
     this.getUserLocation ();

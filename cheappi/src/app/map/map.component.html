@@ -3,7 +3,7 @@
     <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
   </agm-map>
 </div>
-<div *ngIf="markers && !toggle && ready" >
+<div *ngIf="markers && !toggle">
   <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
     <agm-marker *ngFor="let m of markers"
       [latitude]="m.lat"
