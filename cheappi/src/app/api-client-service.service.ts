@@ -28,7 +28,7 @@ export class ApiClientServiceService {
 
   params= Object.assign({}, this.params, {uberKey: environment.UBERKEY});
 
-  getEstimate (dataparams): Observable<any> {
+  getEstimate(dataparams): Observable<any> {
   console.log('params', dataparams);
     return this.http.get(this.uberURL, this.params);
   }
