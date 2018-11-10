@@ -12,6 +12,7 @@ import { ApiClientServiceService } from '../api-client-service.service';
 export class UberComponent implements OnInit {
 
   imgLink: string ="assets/download.png";
+  bookNow: string ="assets/book.jpeg";
 
   @Input() public Data;
 
@@ -26,7 +27,7 @@ export class UberComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.getParams();
+    this.getParams();
   }
 
 }
