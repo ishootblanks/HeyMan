@@ -14,9 +14,18 @@ export class DashboardComponent implements OnInit {
   // autoCompleteCallback1(selectedData:any) {}
 
   // map on init
-  latitude: number = 41.394923;
-  longitude: number = 2.197632;
-  zoom: number = 13;
+  latitude: number;
+  longitude: number;
+  zoom: number = 14;
+
+  getUserLocation () {
+   if (navigator.geolocation) {
+     navigator.geolocation.getCurrentPosition(position => {
+       this.latitude = position.coords.latitude;
+       this.longitude = position.coords.longitude;
+     });
+   }
+ }
 
   // input event
   origin = '';
@@ -67,7 +76,7 @@ export class DashboardComponent implements OnInit {
      }
 
      ngOnInit() {
-
+       this.getUserLocation ();
      }
 
 

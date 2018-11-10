@@ -18,26 +18,36 @@ export class MapComponent implements OnInit {
   // get params from service
   coordinates = this.apiClientService.params.params;
 
+
   constructor(private apiClientService: ApiClientServiceService) { }
 
 
   getMarker() {
-    return this.markers.push(
+    this.markers.push(
       {
-        lat: this.Marker[0].start_latitude,
-        lng: this.Marker[1].start_longitude,
+        lat: this.coordinates[0],
+        lng: this.coordinates[1],
         label: 'A'
       },
       {
-        lat: this.Marker[2].start_latitude,
-        lng: this.Marker[3].start_longitude,
+        lat: this.Marker[2],
+        lng: this.Marker[3],
         label: 'B'
       }
     )
   }
 
+  myPromise = new Promise(
+    function (resolve, reject) {
+      setTimeout(() => {
+        console.log(this.coordinates);
+        resolve(this.getMarker());
+      }, 1000);
+    }
+  )
+
   ngOnInit() {
-    // this.getMarker();
+
   }
 
 }
