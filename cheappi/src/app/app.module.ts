@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
+import { AgmDirectionModule } from 'agm-direction';
 // import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,6 +43,7 @@ import { RoadComponent } from './road/road.component';
     MatInputModule,
     AppRoutingModule,
     HttpClientModule,
+    AgmDirectionModule, 
     AgmCoreModule.forRoot({
       apiKey: environment.APIKEY
     })

@@ -40,8 +40,9 @@ export class ApiClientServiceService {
       })
   }
 
-  getStorage(coordinates: any) {
+  getStorage(coordinates: any){
     this.markers.push(coordinates);
+    console.log(this.markers);
     return this.markers;
   }
 

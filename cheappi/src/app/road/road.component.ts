@@ -10,12 +10,20 @@ export class RoadComponent implements OnInit {
 
   @Input() markers;
 
+  origin;
+  destination;
+
+  getDirection() {
+  this.origin = { lat: 41.3808941, lng: 2.1893853 },
+  this.destination = { lat: 41.4141316, lng: 2.1341654 }
+}
+
   constructor(private apiClientService: ApiClientServiceService) {  }
 
 
 
   ngOnInit() {
-
+    this.getDirection();
   }
 
 }
