@@ -19,6 +19,7 @@ import { UberComponent } from './uber/uber.component';
 import { CabifyComponent } from './cabify/cabify.component';
 import { FaresComponent } from './fares/fares.component';
 import { MapComponent } from './map/map.component';
+import { RoadComponent } from './road/road.component';
 
 
 
@@ -30,6 +31,7 @@ import { MapComponent } from './map/map.component';
     CabifyComponent,
     FaresComponent,
     MapComponent,
+    RoadComponent,
   ],
   imports: [
     BrowserModule,

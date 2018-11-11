@@ -14,12 +14,12 @@
  </form>
 
   <br>
-  <app-map [marker]="coordinates" [toggle]="toggle"></app-map>
-
+  <app-map></app-map>
   <br>
   <br>
+  
 </div>
 
 <div class="button">
-  <a [routerLink]="['/fares', params]"><button mat-raised-button (click)="onClickMe()">Request Fares</button></a>
+  <a routerLink="/fares"><button mat-raised-button (click)="onClickMe()">Request Fares</button></a>
 </div>

@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const data = require('../data.json');
 const rp = require('request-promise-native');
+// const environment = require('../../cheappi/src/environments/environment.ts');
 
 
 const mySchema = new Schema({
@@ -27,6 +28,14 @@ exports.getEstimate = () => {
   };
   return obj;
 };
+
+// const  httpOptions = {
+//     headers: new HttpHeaders({
+//       'Authorization': auth.UBERKEY,
+//       'Accept-Language': 'en_US',
+//       'Content-Type': 'application/json'
+//     })
+//   };
 
 exports.getPrice = async (ctx, next) => {
   const info = await rp({

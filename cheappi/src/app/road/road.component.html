@@ -1,0 +1,9 @@
+
+<div>
+  <agm-map [latitude]="latitude" [longitude]="longitude">
+    <agm-marker *ngFor="let m of apiClientService.markers"
+      [latitude]="m.latitude"
+      [longitude]="m.longitude">
+    </agm-marker>
+  </agm-map>
+</div>

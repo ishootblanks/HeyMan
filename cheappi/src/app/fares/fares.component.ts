@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { MapComponent } from '../map/map.component';
+import { ApiClientServiceService } from '../api-client-service.service';
 
 @Component({
   selector: 'app-fares',

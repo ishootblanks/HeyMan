@@ -10,8 +10,6 @@ import { ApiClientServiceService } from '../api-client-service.service';
 })
 export class MapComponent implements OnInit {
 
-  @Input() marker;
-  @Input() toggle;
 
   // map on init
   latitude: number;
@@ -32,7 +30,6 @@ export class MapComponent implements OnInit {
 
 
   ngOnInit() {
-    console.log(this.marker);
     this.getUserLocation ();
   }
 

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { environment } from '../environments/environment';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @Injectable({
@@ -10,9 +11,11 @@ import { environment } from '../environments/environment';
 })
 export class ApiClientServiceService {
   private baseURL = 'https://maps.googleapis.com/maps/api/geocode/json';
-  private uberURL = 'http://localhost:3000/uber';
+
   private routeURL = 'https://maps.googleapis.com/maps/api/distancematrix/json';
 
+
+  markers: string[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -22,16 +25,6 @@ export class ApiClientServiceService {
         params:{
           address: data,
           key:environment.APIKEY
-        }
-      })
-  }
-
-  getEstimate(dataparams: string): Observable<any> {
-    return this.http
-      .get(this.uberURL, {
-        params:{
-          coordinates: dataparams,
-          uberKey: environment.UBERKEY
         }
       })
   }
@@ -46,5 +39,11 @@ export class ApiClientServiceService {
         }
       })
   }
+
+  getStorage(coordinates: any) {
+    this.markers.push(coordinates);
+    return this.markers;
+  }
+
 
 }
