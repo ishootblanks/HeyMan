@@ -6,6 +6,8 @@ import { environment } from '../environments/environment';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +16,7 @@ export class ApiClientServiceService {
   private routeURL = 'https://maps.googleapis.com/maps/api/distancematrix/json';
 
 
-  markers: any[] = [];
+  markers: any = [];
   origin= {
     lat: Number,
     lng: Number,
@@ -38,34 +40,44 @@ export class ApiClientServiceService {
       })
   }
 
-  // getCoordinates(coordinates: string): Observable<any> {
-  //   return this.http
-  //     .get(this.routeURL,{
-  //       params:{
-  //         unit: 'units=imperial&origins=data',
-  //         geometry: coordinates,
-  //         key:environment.APIKEY
-  //       }
-  //     })
-  // }
-
   getStorageDep(coordinates: any){
-    console.log(coordinates);
     this.origin.lat= coordinates.lat;
     this.origin.lng = coordinates.lng;
     this.origin.label = coordinates.label;
     this.markers.push(this.origin);
-    console.log('ori', this.origin);
   }
 
   getStorageArr(coordinates: any){
-    console.log(coordinates);
     this.destination.lat = coordinates.lat;
     this.destination.lng = coordinates.lng;
     this.destination.label = coordinates.label;
     this.markers.push(this.destination);
-    console.log('dest', this.destination);
   }
 
 
+
+  httpOptions = {
+    headers: {
+      'Authorization': environment.UBERKEY,
+      'Accept-Language': 'en_US',
+      'Content-Type': 'application/json',
+
+    }
+  }
+
+
+  // getEstimate(): Observable<any> {
+  //   console.log(this.markers);
+  //   const uber = `https://api.uber.com/v1.2/estimates/price?start_latitude=${this.markers[0].lat}&start_longitude=${this.markers[0].lng}&end_latitude=${this.markers[1].lat}&end_longitude=${this.markers[1].lng}`;
+  //   return this.http.get(uber, this.httpOptions )
+  // }
+
+  // getEstimate(): Observable<any> {
+  //
+  //   console.log(this.markers);
+  //   const uber = `http://localhost:4200/api.uber.com/v1.2/estimates/price?start_latitude=${this.markers[0].lat}&start_longitude=${this.markers[0].lng}&end_latitude=${this.markers[1].lat}&end_longitude=${this.markers[1].lng}`;
+  //   return this.http.get(uber, { headers: { Authorization: environment.UBERKEY,
+  //   }}
+  //   )
+  // }
 }

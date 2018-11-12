@@ -8,18 +8,23 @@ import { ApiClientServiceService } from '../api-client-service.service';
 })
 export class RoadComponent implements OnInit {
 
-  @Input() markers;
-  @Input() origin;
-  @Input() destination;
-
+  // @Input() markers;
+  // @Input() origin;
+  // @Input() destination;
+  public origin: any
+  public destination: any
 
 
   constructor(private apiClientService: ApiClientServiceService) {  }
 
+  getDirection() {
+  this.origin = { lat: 41.403726, lng: 2.182243 }
+  this.destination = { lat: 41.362454, lng: 2.137322 }
 
+  }
 
   ngOnInit() {
-
+    this.getDirection()
   }
 
 }

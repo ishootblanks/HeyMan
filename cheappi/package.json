@@ -26,6 +26,7 @@
     "@rxjs/rx": "^4.1.0",
     "agm-direction": "^0.7.4",
     "core-js": "^2.5.4",
+    "curl": "^0.1.4",
     "ng4-geoautocomplete": "^0.1.0",
     "ngx-google-places-autocomplete": "^2.0.1",
     "rxjs": "~6.3.3",

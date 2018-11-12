@@ -18,17 +18,24 @@ export class UberComponent implements OnInit {
 
   data;
 
-  constructor(private taxiService: TaxiService) { }
+  constructor(
+    private taxiService: TaxiService,
+    // private apiClientService: ApiClientServiceService
+  ) { }
 
   // fetching params to uber api call
-  getParams() {
-    this.taxiService.getEstimate(this.data)
-      .subscribe(param => this.data = param);
-    // console.log(this.data);
-  }
+
+  showFare() {
+    this.taxiService.getFare()
+      .subscribe(data => this.data = data);
+    }
 
   ngOnInit() {
-    this.getParams();
-  }
+    this.showFare();
 
+  }
+  // setTimeout(() =>{
+  //   this.apiClientService.getEstimate()
+  //   .subscribe(response => this.data = response);
+  // }, 600)
 }

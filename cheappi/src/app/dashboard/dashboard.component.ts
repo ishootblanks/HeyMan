@@ -37,11 +37,9 @@ export class DashboardComponent implements OnInit {
 
   // input event
    onEnter(event: any) {
-     console.log(event.target.value);
      this.origin = event.target.value + ' | ';
    }
    onEnter2(event: any) {
-     console.log(event.target.value);
      this.destination = event.target.value + ' | ';
    }
 
@@ -56,11 +54,9 @@ export class DashboardComponent implements OnInit {
 
    getOrigin(): void {
      this.apiClientService.getLocation(this.origin).subscribe(response => {
-       console.log(response.results);
        this.depart.lat = response.results[0].geometry.location.lat;
        this.depart.lng = response.results[0].geometry.location.lng;
        this.apiClientService.getStorageDep(this.depart);
-
      });
    }
 
@@ -68,7 +64,6 @@ export class DashboardComponent implements OnInit {
    //transfer the input Destination into a function
    getDestination(): void {
      this.apiClientService.getLocation(this.destination).subscribe(response => {
-       console.log(response.results);
        this.arrivee.lat = response.results[0].geometry.location.lat;
        this.arrivee.lng = response.results[0].geometry.location.lng;
        this.apiClientService.getStorageArr(this.arrivee);

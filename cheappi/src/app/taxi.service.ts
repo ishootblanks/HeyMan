@@ -12,7 +12,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 })
 export class TaxiService {
   private cabiUrl: string = 'http://localhost:3000/route';
-  private uberURL = 'http://localhost:3000/uber';
+  private uberURL: string = 'http://localhost:3000/uber';
 
   constructor(private http: HttpClient) { }
 
@@ -20,23 +20,14 @@ export class TaxiService {
     return this.http.get(this.cabiUrl);
   }
 
-  getEstimate(dataparams) {
-    return this.http.get(this.uberURL, {
-        params:{
-          coordinates: dataparams,
-          uberKey: environment.UBERKEY
-        }
-      })
-  }
-
-  // getEstimate(dataparams: string): Observable<any> {
-  //   return this.http
-  //     .get(this.uberURL, {
+  // getEstimate(dataparams) {
+  //   return this.http.get(this.uberURL, {
   //       params:{
-  //         coordinates: dataparams
+  //         coordinates: dataparams,
   //         uberKey: environment.UBERKEY
   //       }
   //     })
   // }
+
 
 }
