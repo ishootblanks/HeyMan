@@ -2,3 +2,6 @@ node_modules
 
 # Environment
 cheappi/src/environments/environment.ts
+
+
+.env

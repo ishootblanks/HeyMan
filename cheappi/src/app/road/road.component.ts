@@ -9,7 +9,6 @@ import { ApiClientServiceService } from '../api-client-service.service';
 export class RoadComponent implements OnInit {
 
   @Input() markers;
-
   @Input() origin;
   @Input() destination;
 

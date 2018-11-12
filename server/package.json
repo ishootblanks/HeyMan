@@ -15,5 +15,8 @@
     "koa-router": "^7.4.0",
     "mongoose": "^5.3.10",
     "request-promise-native": "^1.0.5"
+  },
+  "devDependencies": {
+    "dotenv": "^6.1.0"
   }
 }

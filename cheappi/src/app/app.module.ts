@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
-// import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -43,11 +43,11 @@ import { RoadComponent } from './road/road.component';
     MatInputModule,
     AppRoutingModule,
     HttpClientModule,
-    AgmDirectionModule, 
+    AgmDirectionModule,
+    GooglePlaceModule,
     AgmCoreModule.forRoot({
-      apiKey: environment.APIKEY
+      apiKey: environment.APIKEY,
     })
-    // Ng4GeoautocompleteModule.forRoot()
   ],
   providers: [ApiClientServiceService, TaxiService],
   bootstrap: [AppComponent]

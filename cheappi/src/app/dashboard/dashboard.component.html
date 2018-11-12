@@ -2,8 +2,10 @@
   <form class="example-form">
     <mat-form-field class="example-full-width">
       <!-- <ng4geo-autocomplete
-    (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete> -->
+    (componentCallback)="autoCompleteCallback1($event)"> -->
+      <!-- </ng4geo-autocomplete> -->
       <textarea matInput placeholder="Enter your starting point" input (keyup)="onEnter($event)"></textarea>
+
     </mat-form-field>
   </form>
 
@@ -13,11 +15,17 @@
     </mat-form-field>
  </form>
 
+ <!-- <form (ngSubmit)="onClickMe()" class="example-form">
+   <mat-form-field class="example-full-width">
+     <input ngx-google-places-autocomplete matInput placeholder="Enter your destination" #placesRef="ngx-places" (onAddressChange)="onEnter2($event)"/>
+   </mat-form-field>
+</form> -->
+
   <br>
   <app-map></app-map>
   <br>
   <br>
-  
+
 </div>
 
 <div class="button">

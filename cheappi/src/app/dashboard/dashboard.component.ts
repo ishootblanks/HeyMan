@@ -4,7 +4,6 @@ import { MatInputModule } from '@angular/material/input';
 import { ApiClientServiceService } from '../api-client-service.service';
 import { TaxiService } from '../taxi.service';
 import { Observable, of } from 'rxjs';
-import { Marker } from '../marker';
 
 
 @Component({
@@ -14,26 +13,35 @@ import { Marker } from '../marker';
 })
 export class DashboardComponent implements OnInit {
 
+  // object start
   depart = {
     lat: Number,
     lng: Number,
+    label: 'A'
   };
+
+  // object finish
   arrivee = {
     lat: Number,
     lng: Number,
+    label: 'B'
   };
 
+  // temp store string address
   origin;
   destination;
+
 
   constructor( private apiClientService: ApiClientServiceService ) { }
 
 
   // input event
    onEnter(event: any) {
+     console.log(event.target.value);
      this.origin = event.target.value + ' | ';
    }
    onEnter2(event: any) {
+     console.log(event.target.value);
      this.destination = event.target.value + ' | ';
    }
 
@@ -48,6 +56,7 @@ export class DashboardComponent implements OnInit {
 
    getOrigin(): void {
      this.apiClientService.getLocation(this.origin).subscribe(response => {
+       console.log(response.results);
        this.depart.lat = response.results[0].geometry.location.lat;
        this.depart.lng = response.results[0].geometry.location.lng;
        this.apiClientService.getStorageDep(this.depart);
@@ -59,6 +68,7 @@ export class DashboardComponent implements OnInit {
    //transfer the input Destination into a function
    getDestination(): void {
      this.apiClientService.getLocation(this.destination).subscribe(response => {
+       console.log(response.results);
        this.arrivee.lat = response.results[0].geometry.location.lat;
        this.arrivee.lng = response.results[0].geometry.location.lng;
        this.apiClientService.getStorageArr(this.arrivee);

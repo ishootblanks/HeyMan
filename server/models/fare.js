@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const data = require('../data.json');
 const rp = require('request-promise-native');
-// const environment = require('../../cheappi/src/environments/environment.ts');
+const key = require('../.env');
 
 
 const mySchema = new Schema({
@@ -39,14 +39,21 @@ exports.getEstimate = () => {
 
 exports.getPrice = async (ctx, next) => {
   const info = await rp({
-    'uri': 'https://api.uber.com/v1.2/estimates/price?',
-    'start_latitude=': 'params.params[0]',
-    '&start_longitude=': 'params.params[1]',
-    '&end_latitude=': 'params.params[2]',
-    '&end_longitude=': 'params.params[3]',
-    'Authorization': 'params.uberKey',
-    'Accept-Language': 'en_US',
-    'Content-Type': 'application/json'
+    uri: 'https://api.uber.com/v1.2/estimates/price',
+    qs: {
+      start_latitude: params.params[0],
+      start_longitude: params.params[1],
+      end_latitude: params.params[2],
+      end_longitude: params.params[3],
+    },
+    headers: {
+
+        Authorization: key.UBER_KEY,
+        'Accept-Language': en_US,
+        'Content-Type': application/json
+    },
+    json: true
   });
-  ctx.body = info;
+
+  // ctx.body = info;
 };
