@@ -1,11 +1,11 @@
 
 <div>
-  <agm-map [latitude]="latitude" [longitude]="longitude">
+  <agm-map [latitude]="lat" [longitude]="lng">
     <agm-marker *ngFor="let m of apiClientService.markers"
-      [latitude]="m.latitude"
-      [longitude]="m.longitude">
+      [latitude]="m.lat"
+      [longitude]="m.lng">
     </agm-marker>
-    <agm-direction [origin]="origin" [destination]="destination">
+    <agm-direction [origin]="apiClientService.origin" [destination]="apiClientService.destination">
     </agm-direction>
   </agm-map>
 </div>

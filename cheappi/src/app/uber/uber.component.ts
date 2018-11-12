@@ -28,7 +28,7 @@ export class UberComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getParams();
+    // this.getParams();
   }
 
 }

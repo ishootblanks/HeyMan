@@ -14,15 +14,13 @@ import { Marker } from '../marker';
 })
 export class DashboardComponent implements OnInit {
 
-  @Input() markerA = {
-    id: 'A',
-    latitude: Number,
-    longitude: Number,
+  depart = {
+    lat: Number,
+    lng: Number,
   };
-  @Input() markerB = {
-    id: 'B',
-    latitude: Number,
-    longitude: Number,
+  arrivee = {
+    lat: Number,
+    lng: Number,
   };
 
   origin;
@@ -50,9 +48,10 @@ export class DashboardComponent implements OnInit {
 
    getOrigin(): void {
      this.apiClientService.getLocation(this.origin).subscribe(response => {
-       this.markerA.latitude = response.results[0].geometry.location.lat;
-       this.markerA.longitude = response.results[0].geometry.location.lng;
-       this.apiClientService.getStorage(this.markerA);
+       this.depart.lat = response.results[0].geometry.location.lat;
+       this.depart.lng = response.results[0].geometry.location.lng;
+       this.apiClientService.getStorageDep(this.depart);
+
      });
    }
 
@@ -60,9 +59,9 @@ export class DashboardComponent implements OnInit {
    //transfer the input Destination into a function
    getDestination(): void {
      this.apiClientService.getLocation(this.destination).subscribe(response => {
-       this.markerB.latitude = response.results[0].geometry.location.lat;
-       this.markerB.longitude = response.results[0].geometry.location.lng;
-       this.apiClientService.getStorage(this.markerB);
+       this.arrivee.lat = response.results[0].geometry.location.lat;
+       this.arrivee.lng = response.results[0].geometry.location.lng;
+       this.apiClientService.getStorageArr(this.arrivee);
      });
    }
 

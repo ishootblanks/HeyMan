@@ -15,7 +15,15 @@ export class ApiClientServiceService {
   private routeURL = 'https://maps.googleapis.com/maps/api/distancematrix/json';
 
 
-  markers: string[] = [];
+  markers: any[] = [];
+  origin= {
+    lat: Number,
+    lng: Number
+  }
+  destination= {
+    lat: Number,
+    lng: Number
+  };
 
   constructor(private http: HttpClient) { }
 
@@ -40,10 +48,24 @@ export class ApiClientServiceService {
       })
   }
 
-  getStorage(coordinates: any){
-    this.markers.push(coordinates);
+  getStorageDep(coordinates: any){
+    console.log(coordinates);
+  
+    this.origin.lat= coordinates.lat;
+    this.origin.lng = coordinates.lng;
+
+    this.markers.push(this.origin);
+    console.log('ori', this.origin);
+  }
+
+  getStorageArr(coordinates: any){
+    console.log(coordinates);
+    this.destination.lat = coordinates.lat;
+    this.destination.lng = coordinates.lng;
+
+    this.markers.push(this.destination);
+    console.log('dest', this.destination);
     console.log(this.markers);
-    return this.markers;
   }
 
 
