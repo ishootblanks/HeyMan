@@ -17,14 +17,14 @@ export class DashboardComponent implements OnInit {
   depart = {
     lat: Number,
     lng: Number,
-    label: 'A'
+    title: 'A'
   };
 
   // object finish
   arrivee = {
     lat: Number,
     lng: Number,
-    label: 'B'
+    title: 'B'
   };
 
   // temp store string address

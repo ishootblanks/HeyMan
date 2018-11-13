@@ -4,7 +4,7 @@
   <div *ngIf="price && duration && distance">
     <p>Price range {{price}}</p>
     <p>Estimated travel time {{duration}} mn</p>
-    <p>Distance {{distance}} km</p>
+    <p>Distance {{distance | number: '1.0-0'}} km</p>
 
   </div>
   <a href="https://www.uber.com/es/fare-estimate/">

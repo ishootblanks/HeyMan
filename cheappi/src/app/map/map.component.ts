@@ -16,6 +16,8 @@ export class MapComponent implements OnInit {
   longitude: number;
   zoom: number = 16;
 
+
+  // geolocate the actual user
   getUserLocation () {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
@@ -28,9 +30,9 @@ export class MapComponent implements OnInit {
 
   constructor(private apiClientService: ApiClientServiceService) { }
 
-
+  // launch geolocation at init
   ngOnInit() {
-    this.getUserLocation ();
+    this.getUserLocation();
   }
 
 }

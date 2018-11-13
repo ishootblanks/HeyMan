@@ -20,12 +20,12 @@ export class ApiClientServiceService {
   origin= {
     lat: Number,
     lng: Number,
-    label: String
+    title: String
   }
   destination= {
     lat: Number,
     lng: Number,
-    label: String
+    title: String
   };
 
   constructor(private http: HttpClient) { }
@@ -43,14 +43,14 @@ export class ApiClientServiceService {
   getStorageDep(coordinates: any){
     this.origin.lat= coordinates.lat;
     this.origin.lng = coordinates.lng;
-    this.origin.label = coordinates.label;
+    this.origin.title = coordinates.title;
     this.markers.push(this.origin);
   }
 
   getStorageArr(coordinates: any){
     this.destination.lat = coordinates.lat;
     this.destination.lng = coordinates.lng;
-    this.destination.label = coordinates.label;
+    this.destination.title = coordinates.title;
     this.markers.push(this.destination);
   }
 

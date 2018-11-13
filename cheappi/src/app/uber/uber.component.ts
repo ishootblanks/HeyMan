@@ -16,16 +16,13 @@ export class UberComponent implements OnInit {
   imgLink: string ="assets/download.png";
   bookNow: string ="assets/book.jpeg";
 
-  // data;
+
   price;
   distance;
   duration;
 
 
-  constructor(
-    private taxiService: TaxiService,
-    private apiClientService: ApiClientServiceService
-  ) { }
+  constructor( private apiClientService: ApiClientServiceService ) { }
 
   // fetching params to uber api call
 
@@ -34,7 +31,7 @@ export class UberComponent implements OnInit {
         this.apiClientService.getEstimate()
         .subscribe(response => {
           this.price = response.prices[0].estimate;
-          this.distance = (response.prices[0].distance * 160)/100;
+          this.distance = (response.prices[0].distance * 1.6);
           this.duration = response.prices[0].duration / 60;
       })
     })
