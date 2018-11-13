@@ -1,7 +1,14 @@
-h1 {
-  color: blue;
-  font-family: sans-serif;
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  font-size: 24px;
+  margin-left: 12vw;
+  color: black;
+  font-family: serif;
   height: 10vh;
+  border-style: solid 1px black;
+  margin-bottom: 4vh;
 }
 
 img {

@@ -66,16 +66,16 @@ export class ApiClientServiceService {
   }
 
 
-  // getEstimate(): Observable<any> {
-  //   console.log(this.markers);
-  //   const uber = `https://api.uber.com/v1.2/estimates/price?start_latitude=${this.markers[0].lat}&start_longitude=${this.markers[0].lng}&end_latitude=${this.markers[1].lat}&end_longitude=${this.markers[1].lng}`;
-  //   return this.http.get(uber, this.httpOptions )
-  // }
+  getEstimate(): Observable<any> {
+    console.log(this.markers);
+    const uber = `https://api.uber.com/v1.2/estimates/price?start_latitude=${this.markers[0].lat}&start_longitude=${this.markers[0].lng}&end_latitude=${this.markers[1].lat}&end_longitude=${this.markers[1].lng}`;
+    return this.http.get(uber, this.httpOptions )
+  }
 
   // getEstimate(): Observable<any> {
   //
   //   console.log(this.markers);
-  //   const uber = `http://localhost:4200/api.uber.com/v1.2/estimates/price?start_latitude=${this.markers[0].lat}&start_longitude=${this.markers[0].lng}&end_latitude=${this.markers[1].lat}&end_longitude=${this.markers[1].lng}`;
+  //   const uber = `https://api.uber.com/v1.2/estimates/price?start_latitude=${this.markers[0].lat}&start_longitude=${this.markers[0].lng}&end_latitude=${this.markers[1].lat}&end_longitude=${this.markers[1].lng}`;
   //   return this.http.get(uber, { headers: { Authorization: environment.UBERKEY,
   //   }}
   //   )

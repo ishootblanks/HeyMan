@@ -58,6 +58,66 @@
       "duration": "15mn",
       "estimate": "€ 13-15",
       "currency_code": "EUR"
+    },
+    {
+      "localized_display_name": "POOL",
+      "distance": 7.6,
+      "display_name": "POOL",
+      "high_estimate": 15,
+      "low_estimate": 13,
+      "duration": "13mn",
+      "estimate": "€ 13-15",
+      "currency_code": "EUR"
+    },
+    {
+      "localized_display_name": "POOL",
+      "distance": 6.9,
+      "display_name": "POOL",
+      "high_estimate": 16,
+      "low_estimate": 14,
+      "duration": "14mn",
+      "estimate": "€ 14-16",
+      "currency_code": "EUR"
+    },
+    {
+      "localized_display_name": "POOL",
+      "distance": 7.1,
+      "display_name": "POOL",
+      "high_estimate": 14,
+      "low_estimate": 13,
+      "duration": "13mn",
+      "estimate": "€ 13-14",
+      "currency_code": "EUR"
+    },
+    {
+      "localized_display_name": "POOL",
+      "distance": 6.9,
+      "display_name": "POOL",
+      "high_estimate": 13,
+      "low_estimate": 11,
+      "duration": "12mn",
+      "estimate": "€ 11-13",
+      "currency_code": "EUR"
+    },
+    {
+      "localized_display_name": "POOL",
+      "distance": 7.2,
+      "display_name": "POOL",
+      "high_estimate": 11,
+      "low_estimate": 10,
+      "duration": "16mn",
+      "estimate": "€ 10-11",
+      "currency_code": "EUR"
+    },
+    {
+      "localized_display_name": "POOL",
+      "distance": 7.3,
+      "display_name": "POOL",
+      "high_estimate": 15,
+      "low_estimate": 13,
+      "duration": "15mn",
+      "estimate": "€ 13-15",
+      "currency_code": "EUR"
     }
 
   ]

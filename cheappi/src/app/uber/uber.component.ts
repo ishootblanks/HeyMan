@@ -16,26 +16,28 @@ export class UberComponent implements OnInit {
   imgLink: string ="assets/download.png";
   bookNow: string ="assets/book.jpeg";
 
-  data;
+  // data;
+  price;
+  distance;
+  duration;
+
 
   constructor(
     private taxiService: TaxiService,
-    // private apiClientService: ApiClientServiceService
+    private apiClientService: ApiClientServiceService
   ) { }
 
   // fetching params to uber api call
 
-  showFare() {
-    this.taxiService.getFare()
-      .subscribe(data => this.data = data);
-    }
-
   ngOnInit() {
-    this.showFare();
-
+    setTimeout(() =>{
+        this.apiClientService.getEstimate()
+        .subscribe(response => {
+          this.price = response.prices[0].estimate;
+          this.distance = (response.prices[0].distance * 160)/100;
+          this.duration = response.prices[0].duration / 60;
+      })
+    })
   }
-  // setTimeout(() =>{
-  //   this.apiClientService.getEstimate()
-  //   .subscribe(response => this.data = response);
-  // }, 600)
+
 }
