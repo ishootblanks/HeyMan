@@ -32,8 +32,6 @@ export class DashboardComponent implements OnInit {
   constructor(private apiClientService: ApiClientServiceService) { }
 
   ngOnInit() {
-    console.log(this.origin);
-    console.log(this.destination);
   }
 
   // input event
@@ -53,8 +51,6 @@ export class DashboardComponent implements OnInit {
   //Get origin coordinates
   getOrigin(): void {
     this.apiClientService.getLocation(this.originInput).subscribe(response => {
-      console.log('response', response);
-      this.origin.lat = response.results[0].geometry.location.lat;
       this.origin.lng = response.results[0].geometry.location.lng;
       this.apiClientService.getStorageDep(this.origin);
     });

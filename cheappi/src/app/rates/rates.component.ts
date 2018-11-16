@@ -15,7 +15,6 @@ export class RatesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.origin, this.destination);
   }
 
 }
