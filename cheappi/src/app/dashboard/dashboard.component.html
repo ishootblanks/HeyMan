@@ -1,33 +1,31 @@
 <div>
   <form class="example-form">
     <mat-form-field class="example-full-width">
-      <!-- <ng4geo-autocomplete
-    (componentCallback)="autoCompleteCallback1($event)"> -->
-      <!-- </ng4geo-autocomplete> -->
-      <textarea matInput placeholder="Enter your starting point" input (keyup)="onEnter($event)"></textarea>
+      <textarea matInput placeholder="Enter your starting point" input (keyup)="onEnterOrigin($event)"></textarea>
 
     </mat-form-field>
   </form>
 
   <form (ngSubmit)="onClickMe()" class="example-form">
     <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Enter your destination" input (keyup)="onEnter2($event)"></textarea>
+      <textarea matInput placeholder="Enter your destination" input (keyup)="onEnterDestination($event)"></textarea>
     </mat-form-field>
  </form>
 
- <!-- <form (ngSubmit)="onClickMe()" class="example-form">
-   <mat-form-field class="example-full-width">
-     <input matInput ngx-google-places-autocomplete placeholder="Enter your destination" #placesRef="ngx-places" (keyup)="onEnter2($event)"/>
-   </mat-form-field>
-</form> -->
-
   <br>
-  <app-map></app-map>
+  <!--TODO: try to show results in the same component-->
+  <app-map *ngIf="!origin.lat || !origin.lng || !destination.lat || !destination.lng"></app-map>
+  <app-road *ngIf="origin.lat && origin.lng && destination.lat && destination.lng"></app-road>
   <br>
   <br>
 
 </div>
 
 <div class="button">
-  <a routerLink="/fares"><button mat-raised-button (click)="onClickMe()">Request Fares</button></a>
+  <button mat-raised-button (click)="onClickMe()">Request Fares</button>
 </div>
+
+<app-rates *ngIf="origin.lat && origin.lng && destination.lat && destination.lng"
+  [origin]="origin"
+  [destination]="destination">
+</app-rates>
