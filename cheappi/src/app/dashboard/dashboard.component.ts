@@ -51,6 +51,7 @@ export class DashboardComponent implements OnInit {
   //Get origin coordinates
   getOrigin(): void {
     this.apiClientService.getLocation(this.originInput).subscribe(response => {
+      this.origin.lat = response.results[0].geometry.location.lat;
       this.origin.lng = response.results[0].geometry.location.lng;
       this.apiClientService.getStorageDep(this.origin);
     });
@@ -61,7 +62,7 @@ export class DashboardComponent implements OnInit {
     this.apiClientService.getLocation(this.destinationInput).subscribe(response => {
       this.destination.lat = response.results[0].geometry.location.lat;
       this.destination.lng = response.results[0].geometry.location.lng;
-      this.apiClientService.getStorageArr(this.origin);
+      this.apiClientService.getStorageArr(this.destination);
     });
   }
 
