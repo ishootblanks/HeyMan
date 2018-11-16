@@ -21,6 +21,7 @@ import { CabifyComponent } from './cabify/cabify.component';
 import { FaresComponent } from './fares/fares.component';
 import { MapComponent } from './map/map.component';
 import { RoadComponent } from './road/road.component';
+import { RatesComponent } from './rates/rates.component';
 
 
 
@@ -33,6 +34,7 @@ import { RoadComponent } from './road/road.component';
     FaresComponent,
     MapComponent,
     RoadComponent,
+    RatesComponent,
   ],
   imports: [
     BrowserModule,

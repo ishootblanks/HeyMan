@@ -1,9 +1,6 @@
 
 import { Component, OnInit, Input } from '@angular/core';
-import { MatInputModule } from '@angular/material/input';
 import { ApiClientServiceService } from '../api-client-service.service';
-import { TaxiService } from '../taxi.service';
-import { Observable, of } from 'rxjs';
 
 
 @Component({
@@ -14,64 +11,62 @@ import { Observable, of } from 'rxjs';
 export class DashboardComponent implements OnInit {
 
   // object start
-  depart = {
-    lat: Number,
-    lng: Number,
+  origin = {
+    lat: null,
+    lng: null,
     title: 'A'
   };
 
   // object finish
-  arrivee = {
-    lat: Number,
-    lng: Number,
+  destination = {
+    lat: null,
+    lng: null,
     title: 'B'
   };
 
   // temp store string address
-  origin;
-  destination;
+  originInput;
+  destinationInput;
 
 
-  constructor( private apiClientService: ApiClientServiceService ) { }
+  constructor(private apiClientService: ApiClientServiceService) { }
 
+  ngOnInit() {
+    console.log(this.origin);
+    console.log(this.destination);
+  }
 
   // input event
-   onEnter(event: any) {
-     this.origin = event.target.value + ' | ';
-   }
-   onEnter2(event: any) {
-     this.destination = event.target.value + ' | ';
-   }
+  onEnterOrigin(event: any) {
+    this.originInput = event.target.value + ' | ';
+  }
+  onEnterDestination(event: any) {
+    this.destinationInput = event.target.value + ' | ';
+  }
 
+  // click event
+  onClickMe() {
+    this.getOrigin();
+    this.getDestination();
+  }
 
-   // click event
-   onClickMe() {
-     this.getOrigin();
-     this.getDestination();
-   }
+  //Get origin coordinates
+  getOrigin(): void {
+    this.apiClientService.getLocation(this.originInput).subscribe(response => {
+      console.log('response', response);
+      this.origin.lat = response.results[0].geometry.location.lat;
+      this.origin.lng = response.results[0].geometry.location.lng;
+      this.apiClientService.getStorageDep(this.origin);
+    });
+  }
 
-   // //transfer the input Origin into a Marker
-
-   getOrigin(): void {
-     this.apiClientService.getLocation(this.origin).subscribe(response => {
-       this.depart.lat = response.results[0].geometry.location.lat;
-       this.depart.lng = response.results[0].geometry.location.lng;
-       this.apiClientService.getStorageDep(this.depart);
-     });
-   }
-
-
-   //transfer the input Destination into a function
-   getDestination(): void {
-     this.apiClientService.getLocation(this.destination).subscribe(response => {
-       this.arrivee.lat = response.results[0].geometry.location.lat;
-       this.arrivee.lng = response.results[0].geometry.location.lng;
-       this.apiClientService.getStorageArr(this.arrivee);
-     });
-   }
-
-   ngOnInit() {
-
-   }
+  //Get destination coordinates
+  getDestination(): void {
+    this.apiClientService.getLocation(this.destinationInput).subscribe(response => {
+      this.destination.lat = response.results[0].geometry.location.lat;
+      this.destination.lng = response.results[0].geometry.location.lng;
+      this.apiClientService.getStorageArr(this.origin);
+    });
+  }
 
 }

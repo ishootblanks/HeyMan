@@ -1,8 +1,6 @@
 
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { ApiClientServiceService } from '../api-client-service.service';
-import { TaxiService } from '../taxi.service';
+import { RatesServiceService } from '../rates-service.service';
 
 
 
@@ -12,29 +10,28 @@ import { TaxiService } from '../taxi.service';
   styleUrls: ['./uber.component.css']
 })
 export class UberComponent implements OnInit {
+  @Input()
+  origin;
 
-  imgLink: string ="assets/download.png";
-  bookNow: string ="assets/book.jpeg";
+  @Input()
+  destination;
 
+  imgLink: string = "assets/download.png";
+  bookNow: string = "assets/book.jpeg";
 
   price;
   distance;
   duration;
 
-
-  constructor( private apiClientService: ApiClientServiceService ) { }
-
-  // fetching params to uber api call
+  constructor(private ratesService: RatesServiceService) { }
 
   ngOnInit() {
-    setTimeout(() =>{
-        this.apiClientService.getEstimate()
-        .subscribe(response => {
-          this.price = response.prices[0].estimate;
-          this.distance = (response.prices[0].distance * 1.6);
-          this.duration = response.prices[0].duration / 60;
-      })
-    })
+    this.ratesService.getEstimate(this.origin, this.destination).subscribe(res => {
+      this.price = res.prices[0].estimate;
+        this.distance = (res.prices[0].distance * 1.6);
+        this.duration = res.prices[0].duration / 60;
+    });
   }
+  
 
 }
