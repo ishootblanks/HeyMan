@@ -40,3 +40,6 @@ Thumbs.db
 
 # Environment
 cheappi/src/environments/environment.ts
+
+#index
+cheappi/src/index.html

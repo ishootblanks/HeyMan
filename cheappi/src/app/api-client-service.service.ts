@@ -10,21 +10,8 @@ import { environment } from '../environments/environment';
 })
 export class ApiClientServiceService {
   private baseURL = 'https://maps.googleapis.com/maps/api/geocode/json';
-
-  coordinatesFetched = false;
-
-  markers: any = [];
   
-  origin= {
-    lat: Number,
-    lng: Number,
-    title: String
-  }
-  destination= {
-    lat: Number,
-    lng: Number,
-    title: String
-  };
+  markers: any = [];
 
   constructor(private http: HttpClient) { }
 
@@ -38,17 +25,7 @@ export class ApiClientServiceService {
       })
   }
 
-  getStorageDep(coordinates: any){
-    this.origin.lat= coordinates.lat;
-    this.origin.lng = coordinates.lng;
-    this.origin.title = coordinates.title;
-    this.markers.push(this.origin);
-  }
-
-  getStorageArr(coordinates: any){
-    this.destination.lat = coordinates.lat;
-    this.destination.lng = coordinates.lng;
-    this.destination.title = coordinates.title;
-    this.markers.push(this.destination);
+  setStorage(coordinates: any) {
+    this.markers.push(coordinates);
   }
 }

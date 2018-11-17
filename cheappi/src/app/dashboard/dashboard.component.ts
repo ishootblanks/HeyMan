@@ -34,34 +34,25 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
-
   // click event
   onClickMe() {
-    this.getOrigin();
-    this.getDestination();
+    this.getCoordinates(this.originInput, this.origin);
+    this.getCoordinates(this.destinationInput, this.destination);
   }
+
   handleAddressChangeOrigin(event) {
     this.originInput = event.formatted_address + ' | ';
   }
+
   handleAddressChangeDestination(event) {
     this.destinationInput = event.formatted_address + ' | ';
   }
 
-  // Get origin coordinates
-  getOrigin(): void {
-    this.apiClientService.getLocation(this.originInput).subscribe(response => {
-      this.origin.lat = response.results[0].geometry.location.lat;
-      this.origin.lng = response.results[0].geometry.location.lng;
-      this.apiClientService.getStorageDep(this.origin);
-    });
-  }
-
-  // Get destination coordinates
-  getDestination(): void {
-    this.apiClientService.getLocation(this.destinationInput).subscribe(response => {
-      this.destination.lat = response.results[0].geometry.location.lat;
-      this.destination.lng = response.results[0].geometry.location.lng;
-      this.apiClientService.getStorageArr(this.destination);
+  getCoordinates(input, point): void {
+    this.apiClientService.getLocation(input).subscribe(response => {
+      point.lat = response.results[0].geometry.location.lat;
+      point.lng = response.results[0].geometry.location.lng;
+      this.apiClientService.setStorage(point);
     });
   }
 

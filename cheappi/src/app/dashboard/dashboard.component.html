@@ -12,7 +12,10 @@
   <br>
   <!--DO: try to show results in the same component-->
   <app-map *ngIf="!origin.lat || !origin.lng || !destination.lat || !destination.lng"></app-map>
-  <app-road *ngIf="origin.lat && origin.lng && destination.lat && destination.lng"></app-road>
+  <app-road *ngIf="origin.lat && origin.lng && destination.lat && destination.lng"
+    [origin]="origin"
+    [destination]="destination">
+  </app-road>
   <br>
   <br>
 
