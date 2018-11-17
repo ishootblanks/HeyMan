@@ -27,8 +27,6 @@ describe('DashboardComponent', () => {
     component.getOrigin();
     component.ngOnInit();
 
-    console.log(component);
-    
     expect(component.origin.lat).toBe(41.4039286);
     expect(component.origin.lng).toBe(2.181874);
   })
