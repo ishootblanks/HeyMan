@@ -1,19 +1,16 @@
 <div>
-  <form class="example-form">
-    <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Enter your starting point" input (keyup)="onEnterOrigin($event)"></textarea>
 
-    </mat-form-field>
-  </form>
+  <div (ngSubmit)="onClickMe()" class="example-form"> 
+    <input class="example-full-width" matInput placeholder="Enter your starting point" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChangeOrigin($event)" /> 
+  </div>
 
-  <form (ngSubmit)="onClickMe()" class="example-form">
-    <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Enter your destination" input (keyup)="onEnterDestination($event)"></textarea>
-    </mat-form-field>
- </form>
+ 
+  <div (ngSubmit)="onClickMe()" class="example-form">
+      <input class="example-full-width" matInput placeholder="Enter your destination" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChangeDestination($event)" /> 
+  </div>
 
   <br>
-  <!--TODO: try to show results in the same component-->
+  <!--DO: try to show results in the same component-->
   <app-map *ngIf="!origin.lat || !origin.lng || !destination.lat || !destination.lng"></app-map>
   <app-road *ngIf="origin.lat && origin.lng && destination.lat && destination.lng"></app-road>
   <br>

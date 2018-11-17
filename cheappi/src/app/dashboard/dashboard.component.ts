@@ -34,21 +34,20 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
-  // input event
-  onEnterOrigin(event: any) {
-    this.originInput = event.target.value + ' | ';
-  }
-  onEnterDestination(event: any) {
-    this.destinationInput = event.target.value + ' | ';
-  }
 
   // click event
   onClickMe() {
     this.getOrigin();
     this.getDestination();
   }
+  handleAddressChangeOrigin(event) {
+    this.originInput = event.formatted_address + ' | ';
+  }
+  handleAddressChangeDestination(event) {
+    this.destinationInput = event.formatted_address + ' | ';
+  }
 
-  //Get origin coordinates
+  // Get origin coordinates
   getOrigin(): void {
     this.apiClientService.getLocation(this.originInput).subscribe(response => {
       this.origin.lat = response.results[0].geometry.location.lat;
@@ -57,7 +56,7 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  //Get destination coordinates
+  // Get destination coordinates
   getDestination(): void {
     this.apiClientService.getLocation(this.destinationInput).subscribe(response => {
       this.destination.lat = response.results[0].geometry.location.lat;
