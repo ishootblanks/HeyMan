@@ -52,7 +52,6 @@ export class DashboardComponent implements OnInit {
     this.apiClientService.getLocation(input).subscribe(response => {
       point.lat = response.results[0].geometry.location.lat;
       point.lng = response.results[0].geometry.location.lng;
-      this.apiClientService.setStorage(point);
     });
   }
 

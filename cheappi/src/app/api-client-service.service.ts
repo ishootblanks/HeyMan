@@ -11,8 +11,6 @@ import { environment } from '../environments/environment';
 export class ApiClientServiceService {
   private baseURL = 'https://maps.googleapis.com/maps/api/geocode/json';
   
-  markers: any = [];
-
   constructor(private http: HttpClient) { }
 
   getLocation(data: string): Observable<any> {
@@ -25,7 +23,4 @@ export class ApiClientServiceService {
       })
   }
 
-  setStorage(coordinates: any) {
-    this.markers.push(coordinates);
-  }
 }
