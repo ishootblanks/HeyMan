@@ -19,11 +19,15 @@
 <!-- <div class="map"> -->
 <div class="map">
   <!--DO: try to show results in the same component-->
-  <app-map *ngIf="!origin.lat || !origin.lng || !destination.lat || !destination.lng"></app-map>
-  <app-road *ngIf="origin.lat && origin.lng && destination.lat && destination.lng" [origin]="origin" [destination]="destination">
-  </app-road>
+  <div class="mapWrapper">
+    <app-map *ngIf="!origin.lat || !origin.lng || !destination.lat || !destination.lng"></app-map>
+    <app-road *ngIf="origin.lat && origin.lng && destination.lat && destination.lng" [origin]="origin" [destination]="destination">
+    </app-road>
+  </div>
+  <div class="rates"
+    *ngIf="origin.lat && origin.lng && destination.lat && destination.lng">
+    <app-rates [origin]="origin" [destination]="destination">
+    </app-rates>
+  </div>
 </div>
 
-
-<app-rates *ngIf="origin.lat && origin.lng && destination.lat && destination.lng" [origin]="origin" [destination]="destination">
-</app-rates>
