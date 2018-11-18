@@ -11,6 +11,7 @@ import { ApiClientServiceService } from '../api-client-service.service';
 export class CabifyComponent implements OnInit {
   imgLink : string ="assets/cabify.png";
   bookNow: string ="assets/book.jpeg";
+  rightArrow: string = "assets/right-arrow.png";
 
   data;
 

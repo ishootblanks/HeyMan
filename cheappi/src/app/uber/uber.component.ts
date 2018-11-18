@@ -18,6 +18,7 @@ export class UberComponent implements OnInit {
 
   imgLink: string = "assets/download.png";
   bookNow: string = "assets/book.jpeg";
+  rightArrow: string = "assets/right-arrow.png";
 
   price;
   distance;

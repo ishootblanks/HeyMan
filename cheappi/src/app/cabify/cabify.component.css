@@ -1,6 +1,12 @@
-.cabi img {
+a img {
+  width: 20px;
+  height: auto;
+}
+
+.logo {
   width: 75px;
   height: auto;
+  border-radius: 50%;
 }
 
 .cabi {
@@ -8,10 +14,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  border-radius: 20px;
-  border: solid 1px grey;
-  margin-bottom: 3vh;
-  margin-top: 2vh;
-  background-color: white;
-  box-shadow: 8px 8px 6px #888888;
+  font-size: 12px;
+  margin: 10px 10px;
+  background-color: #454d5a;
 }
