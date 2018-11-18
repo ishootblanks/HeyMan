@@ -1,31 +1,29 @@
-<div>
-
-  <div (ngSubmit)="onClickMe()" class="example-form"> 
-    <input class="example-full-width" matInput placeholder="Enter your starting point" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChangeOrigin($event)" /> 
+<div class="container">
+  <div class="search-container">
+    <div (ngSubmit)="onClickMe()" class="example-form">
+      <p class="title">From:</p>
+      <input id="inputOrigin" matInput placeholder="Enter your starting point" ngx-google-places-autocomplete [options]='options'
+        #placesRef="ngx-places" (onAddressChange)="handleAddressChangeOrigin($event)" />
+    </div>
+    <div (ngSubmit)="onClickMe()" class="example-form">
+      <p class="title">To:</p>
+      <input id="inputDestination" matInput placeholder="Enter your destination" ngx-google-places-autocomplete [options]='options'
+        #placesRef="ngx-places" (onAddressChange)="handleAddressChangeDestination($event)" />
+    </div>
+    <div class="button">
+      <button mat-raised-button (click)="onClickMe()">Request Fares</button>
+    </div>
   </div>
+</div>
 
- 
-  <div (ngSubmit)="onClickMe()" class="example-form">
-      <input class="example-full-width" matInput placeholder="Enter your destination" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChangeDestination($event)" /> 
-  </div>
-
-  <br>
+<!-- <div class="map"> -->
+<div class="map">
   <!--DO: try to show results in the same component-->
   <app-map *ngIf="!origin.lat || !origin.lng || !destination.lat || !destination.lng"></app-map>
-  <app-road *ngIf="origin.lat && origin.lng && destination.lat && destination.lng"
-    [origin]="origin"
-    [destination]="destination">
+  <app-road *ngIf="origin.lat && origin.lng && destination.lat && destination.lng" [origin]="origin" [destination]="destination">
   </app-road>
-  <br>
-  <br>
-
 </div>
 
-<div class="button">
-  <button mat-raised-button (click)="onClickMe()">Request Fares</button>
-</div>
 
-<app-rates *ngIf="origin.lat && origin.lng && destination.lat && destination.lng"
-  [origin]="origin"
-  [destination]="destination">
+<app-rates *ngIf="origin.lat && origin.lng && destination.lat && destination.lng" [origin]="origin" [destination]="destination">
 </app-rates>
