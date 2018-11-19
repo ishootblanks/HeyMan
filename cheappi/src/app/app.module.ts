@@ -16,7 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ApiClientServiceService } from './api-client-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { TaxiService } from './taxi.service';
-import { UberComponent } from './uber/uber.component';
+import { RatesItemComponent } from './ratesItem/ratesItem.component';
 import { CabifyComponent } from './cabify/cabify.component';
 import { FaresComponent } from './fares/fares.component';
 import { MapComponent } from './map/map.component';
@@ -29,7 +29,7 @@ import { RatesComponent } from './rates/rates.component';
   declarations: [
     AppComponent,
     DashboardComponent,
-    UberComponent,
+    RatesItemComponent,
     CabifyComponent,
     FaresComponent,
     MapComponent,

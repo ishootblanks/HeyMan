@@ -5,15 +5,13 @@ import { RatesServiceService } from '../rates-service.service';
 
 
 @Component({
-  selector: 'app-uber',
-  templateUrl: './uber.component.html',
-  styleUrls: ['./uber.component.css']
+  selector: 'app-rates-item',
+  templateUrl: './ratesItem.component.html',
+  styleUrls: ['./ratesItem.component.css']
 })
-export class UberComponent implements OnInit {
+export class RatesItemComponent implements OnInit {
   @Input()
   data;
-
-
   
   bookNow: string = "assets/book.jpeg";
   rightArrow: string = "assets/right-arrow.png";
