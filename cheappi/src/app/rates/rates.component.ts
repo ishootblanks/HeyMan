@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
 import { RatesServiceService } from '../rates-service.service';
+import { TaxiService } from '../taxi.service';
 
 @Component({
   selector: 'app-rates',
@@ -13,24 +14,42 @@ export class RatesComponent implements OnChanges, OnInit {
   @Input()
   destination;
 
-  data: Object;
+  dataCabify: Object;
+  dataUber: Object;
 
-  constructor(private ratesService: RatesServiceService) { }
+  constructor(private ratesService: RatesServiceService, private taxiService: TaxiService) { }
 
   ngOnChanges(changes: SimpleChanges) {
-    //UberApi
+    this.getCabifyData();
+    this.getUberData();
+  }
+
+  ngOnInit() {
+  }
+
+  getCabifyData() {
+    this.taxiService.getFare()
+      .subscribe(res =>{
+        this.dataCabify = {
+          price: res["price"],
+          distance: res["distance"],
+          duration: res["time"],
+          url: "https://cabify.com/es/spain/barcelona/",
+          imgLink: "assets/cabify.png",
+        };
+      });
+  }
+
+  getUberData() {
     this.ratesService.getEstimate(this.origin, this.destination).subscribe(res => {
-      this.data = {
+      this.dataUber = {
         price: res.prices[0].estimate,
         distance: (res.prices[0].distance * 1.6),
         duration: res.prices[0].duration / 60,
         url: "https://www.uber.com/es/fare-estimate/",
-        imgLink: "assets/download.png",
+        imgLink: "assets/uber.png",
       };
     });
-  }
-
-  ngOnInit() {
   }
 
 }
