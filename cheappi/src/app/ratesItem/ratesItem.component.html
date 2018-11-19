@@ -1,0 +1,11 @@
+<div class="ubi" *ngIf="data">
+  <div *ngIf="data.imgLink"><img class="logo" src="{{data.imgLink}}"></div>
+  <div *ngIf="data.price && data.duration && data.distance">
+    <p>Price range {{data.price}}</p>
+    <p>Estimated travel time {{data.duration}} mn</p>
+    <p>Distance {{data.distance | number: '1.0-0'}} km</p>
+  </div>
+  <a *ngIf="data.url" href=data.url>
+    <img src="{{rightArrow}}">
+  </a>
+</div>

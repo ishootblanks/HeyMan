@@ -1,6 +1,5 @@
 
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +10,8 @@ export class AppComponent {
   title = 'Hey.MaN!';
   myImage : string = "assets/logo.png";
 
-  constructor(private router: Router) {}
+  constructor() {}
 
   ngOnInit() {
-    this.router.navigate([''])
   }
 }
