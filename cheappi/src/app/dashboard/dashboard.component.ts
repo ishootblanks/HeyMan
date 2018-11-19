@@ -50,8 +50,19 @@ export class DashboardComponent implements OnInit {
 
   getCoordinates(input, point): void {
     this.apiClientService.getLocation(input).subscribe(response => {
-      point.lat = response.results[0].geometry.location.lat;
-      point.lng = response.results[0].geometry.location.lng;
+      if(point === this.origin) {
+        this.origin = {
+          ...this.origin,
+          lat: response.results[0].geometry.location.lat,
+          lng: response.results[0].geometry.location.lng,
+        }
+      } else {
+        this.destination = {
+          ...this.destination,
+          lat: response.results[0].geometry.location.lat,
+          lng: response.results[0].geometry.location.lng,
+        }
+      }
     });
   }
 
