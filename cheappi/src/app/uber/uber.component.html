@@ -1,11 +1,10 @@
 <div class="ubi">
   <div><img class="logo" src="{{imgLink}}"></div>
-
   <div *ngIf="price && duration && distance">
     <p>Price range {{price}}</p>
     <p>Estimated travel time {{duration}} mn</p>
     <p>Distance {{distance | number: '1.0-0'}} km</p>
-
+    <!-- <p>{{getPrice(origin)}}</p> -->
   </div>
   <a href="https://www.uber.com/es/fare-estimate/">
     <img src="{{rightArrow}}">
