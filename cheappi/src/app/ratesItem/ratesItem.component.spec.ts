@@ -4,7 +4,7 @@ import { RatesItemComponent } from './ratesItem.component';
 
 describe('RatesItemComponent', () => {
   let component: RatesItemComponent;
-  let fixture: ComponentFixture<UberComponent>;
+  let fixture: ComponentFixture<RatesItemComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

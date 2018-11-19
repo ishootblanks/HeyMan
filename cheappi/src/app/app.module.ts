@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { environment } from '../environments/environment';
@@ -17,8 +16,6 @@ import { ApiClientServiceService } from './api-client-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { TaxiService } from './taxi.service';
 import { RatesItemComponent } from './ratesItem/ratesItem.component';
-import { CabifyComponent } from './cabify/cabify.component';
-import { FaresComponent } from './fares/fares.component';
 import { MapComponent } from './map/map.component';
 import { RoadComponent } from './road/road.component';
 import { RatesComponent } from './rates/rates.component';
@@ -30,8 +27,6 @@ import { RatesComponent } from './rates/rates.component';
     AppComponent,
     DashboardComponent,
     RatesItemComponent,
-    CabifyComponent,
-    FaresComponent,
     MapComponent,
     RoadComponent,
     RatesComponent,
@@ -43,7 +38,6 @@ import { RatesComponent } from './rates/rates.component';
     MatButtonModule,
     MatCheckboxModule,
     MatInputModule,
-    AppRoutingModule,
     HttpClientModule,
     AgmDirectionModule,
     GooglePlaceModule,
