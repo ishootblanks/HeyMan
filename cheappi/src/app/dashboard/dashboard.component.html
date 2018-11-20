@@ -3,13 +3,13 @@
   <div class="search-container">
     <div (ngSubmit)="onClickMe()" class="example-form">
       <p class="title">From:</p>
-      <input id="inputOrigin" matInput placeholder="Enter your starting point" ngx-google-places-autocomplete [options]='options'
-        #placesRef="ngx-places" (onAddressChange)="handleAddressChangeOrigin($event)" />
+      <input type ="text" id="inputOrigin" matInput placeholder="Enter your starting point" ngx-google-places-autocomplete [options]='options'
+        #placesRef="ngx-places" (onAddressChange)="handleAddressChangeOrigin($event)" (keyup)="handleAddressChangeOrigin($event)" />
     </div>
     <div (ngSubmit)="onClickMe()" class="example-form">
       <p class="title">To:</p>
-      <input id="inputDestination" matInput placeholder="Enter your destination" ngx-google-places-autocomplete [options]='options'
-        #placesRef="ngx-places" (onAddressChange)="handleAddressChangeDestination($event)" />
+      <input type="text" id="inputDestination" matInput placeholder="Enter your destination" ngx-google-places-autocomplete [options]='options'
+        #placesRef="ngx-places" (onAddressChange)="handleAddressChangeDestination($event)" (keyup)="handleAddressChangeDestination($event)"/>
     </div>
     <div class="button">
       <button mat-raised-button (click)="onClickMe()">Request Fares</button>

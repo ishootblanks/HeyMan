@@ -1,6 +1,8 @@
 
 import { Component, OnInit, Input } from '@angular/core';
 import { ApiClientServiceService } from '../api-client-service.service';
+import { MatDialog } from '@angular/material';
+import { MyDialogComponent } from '../my-dialog/my-dialog.component';
 
 
 @Component({
@@ -29,23 +31,38 @@ export class DashboardComponent implements OnInit {
   destinationInput;
 
 
-  constructor(private apiClientService: ApiClientServiceService) { }
+  constructor(private apiClientService: ApiClientServiceService, public dialog: MatDialog) { }
 
   ngOnInit() {
   }
 
-  // click event
+
   onClickMe() {
-    this.getCoordinates(this.originInput, this.origin);
-    this.getCoordinates(this.destinationInput, this.destination);
+    console.log('qwertyuio', !this.originInput);
+    if ((!this.originInput) || (!this.destinationInput)) {
+      this.openDialog();
+    } else {
+      this.getCoordinates(this.originInput, this.origin);
+      this.getCoordinates(this.destinationInput, this.destination);
+      console.log(this.originInput);
+
+    }
   }
 
-  handleAddressChangeOrigin(event) {
-    this.originInput = event.formatted_address + ' | ';
+
+  handleAddressChangeOrigin(event: any) {
+    this.originInput = event.formatted_address;
   }
 
-  handleAddressChangeDestination(event) {
-    this.destinationInput = event.formatted_address + ' | ';
+  handleAddressChangeDestination(event: any) {
+    this.destinationInput = event.formatted_address;
+  }
+
+  openDialog(): void {
+    this.dialog.open(MyDialogComponent).afterClosed()
+    .subscribe(result => {
+      console.log(result);
+    });
   }
 
   getCoordinates(input, point): void {
@@ -61,7 +78,7 @@ export class DashboardComponent implements OnInit {
           ...this.destination,
           lat: response.results[0].geometry.location.lat,
           lng: response.results[0].geometry.location.lng,
-        }
+        };
       }
     });
   }
