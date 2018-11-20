@@ -1,16 +1,40 @@
-import { TestBed } from '@angular/core/testing';
-
 import { ApiClientServiceService } from './api-client-service.service';
 import { HttpClient } from '@angular/common/http';
+import { of } from 'rxjs';
+
+const data = {
+  results: [{
+    geometry: {
+      location: {
+        lat: 1,
+        lng: 2,
+      }
+    }
+  }]
+};
+const httpClient: any = {};
+httpClient.get = () => of(data);
+
 
 describe('ApiClientServiceService', () => {
-  let comp: ApiClientServiceService
+  let service: ApiClientServiceService;
+
   beforeEach(() => {
-    comp = new ApiClientServiceService(new HttpClient())
+    service = new ApiClientServiceService(httpClient as HttpClient)
   });
 
   it('should be created', () => {
-    const service: ApiClientServiceService = comp;
-    expect(true).toBeTruthy();
+    expect(service).toBeTruthy();
+  });
+
+  it('#getLocation should get lat and lng', () => {
+    service.getLocation('barcelona').subscribe((res) => {
+      expect(res.results[0].geometry.location.lat).toEqual(1);
+      expect(res.results[0].geometry.location.lng).toEqual(2);
+    });
   });
 });
+      
+     
+
+
