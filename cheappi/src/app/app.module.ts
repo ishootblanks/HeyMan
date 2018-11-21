@@ -19,6 +19,8 @@ import { RatesItemComponent } from './ratesItem/ratesItem.component';
 import { MapComponent } from './map/map.component';
 import { RoadComponent } from './road/road.component';
 import { RatesComponent } from './rates/rates.component';
+import { AppRoutingModule } from './app-routing.module';
+import { RideRequestComponent } from './ride-request/ride-request.component';
 
 
 
@@ -30,6 +32,7 @@ import { RatesComponent } from './rates/rates.component';
     MapComponent,
     RoadComponent,
     RatesComponent,
+    RideRequestComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { RatesComponent } from './rates/rates.component';
     GooglePlaceModule,
     AgmCoreModule.forRoot({
       apiKey: environment.APIKEY,
-    })
+    }),
+    AppRoutingModule
   ],
   providers: [ApiClientServiceService, TaxiService],
   bootstrap: [AppComponent]

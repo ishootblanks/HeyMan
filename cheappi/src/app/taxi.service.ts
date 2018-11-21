@@ -12,7 +12,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 })
 export class TaxiService {
   private cabiUrl: string = 'http://localhost:3000/route';
-  private uberURL: string = 'http://localhost:3000/uber';
 
   constructor(private http: HttpClient) { }
 

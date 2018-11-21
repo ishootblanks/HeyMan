@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RatesServiceService {
+  private url: string = 'http://localhost:3000/estimate'
 
   constructor(private http: HttpClient) { }
 
@@ -18,8 +19,13 @@ export class RatesServiceService {
     }
   }
 
-  getEstimate(origin, destination): Observable<any> {
-    const uber = `https://api.uber.com/v1.2/estimates/price?start_latitude=${origin.lat}&start_longitude=${origin.lng}&end_latitude=${destination.lat}&end_longitude=${destination.lng}`;
-    return this.http.get(uber, this.httpOptions)
+  getEstimate(origin, destination): Observable<any>{
+    console.log('hey', origin);
+    return this.http
+      .get(this.url,{
+        headers: {
+          coordinates: `${origin.lat} ${origin.lng} ${destination.lat} ${destination.lng}`,
+        }
+      })
   }
 }

@@ -5,7 +5,7 @@
     <p>Estimated travel time {{data.duration}} mn</p>
     <p>Distance {{data.distance | number: '1.0-0'}} km</p>
   </div>
-  <a *ngIf="data.url" href=data.url>
+  <a *ngIf="data.url" href={{data.url}}>
     <img src="{{rightArrow}}">
   </a>
 </div>

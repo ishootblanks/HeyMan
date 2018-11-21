@@ -1,9 +1,10 @@
 const Router = require('koa-router');
 const router = new Router();
-const fare = require('./controllers/fare.js');
+const controller = require('./controllers/controller.js');
 
 router
-  .get('/route', fare.getFare)
-
+  .get('/route', controller.getFare)
+  .get('/auth', controller.getToken)
+  .get('/estimate', controller.getEstimate)
 
 module.exports = router;
